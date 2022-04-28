@@ -11,7 +11,7 @@ export default function Home() {
         <meta property="og:title" content="pixl.page"/>
         <meta property="og:description" content="NFT frames for your collections"/>
         <meta property="og:site_name" content="pixl.page"/>
-        <meta property="og:image" content="https://m.media-amazon.com/images/M/MV5BNGM2ZjJmZDQtNTI5MS00ZTI0LTkyNjktM2RlYWY0YTY5MTYzXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_FMjpg_UX1000_.jpg"/>
+        <meta property="og:image" content={seoLading}/>
       </Head>
 
       <main className={styles.main}>
