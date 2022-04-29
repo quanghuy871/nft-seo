@@ -7,7 +7,9 @@ import {ScrollPanel} from 'primereact/scrollpanel';
 import {Badge} from 'primereact/badge';
 import PreviewDetails from '../PreviewDetails/PreviewDetails';
 import close from '../../assets/images/close.png';
-import {countAsset, removeCollectionState} from '../../store/manager';
+import {countAsset, removeCollectionState, updateCollectionState} from '../../store/manager';
+import onCheckBase64 from '../../utils/onCheckBase64';
+import PreviewDetailsLists from '../PreviewDetailsLists/PreviewDetailsLists';
 
 function Preview() {
   const [visible, setVisible] = useState(false);
@@ -16,25 +18,19 @@ function Preview() {
   const dispatch = useDispatch();
 
   const itemTemplate = (collectionState) => {
-    let collection = collectionState.collection;
+    const collection = collectionState.collection;
+    const assetCount = collectionState.assetCount;
 
     return (
       <div className="grid preview-detail-collection">
-        <img alt={collection.name} src={collection.poster.url} style={{maxWidth: '40px', objectFit: 'contain', maxHeight: '50px'}}/>
+        <img alt={collection.name} src={onCheckBase64(collection.poster.url)} style={{maxWidth: '40px', objectFit: 'contain', maxHeight: '50px'}}/>
         <div className="col-9 text-sm font-bold">{collection.name}</div>
         <button onClick={() => {
           dispatch(countAsset({method: 'remove-only-selection', collection: collection}));
           dispatch(removeCollectionState(collection));
         }} className="btn btn-close"><img className="img-fluid" src={close.src} alt="close"/></button>
-        {
-          collectionState.all ?
-            <div className="preview-detail">
-              <div className="col-12">
-                <div className="preview-detail-asset"><Badge value="All"></Badge></div>
-              </div>
-            </div> :
-            <PreviewDetails collection={collection}/>
-        }
+
+        <PreviewDetailsLists assetCount={assetCount} collection={collection}/>
       </div>
     );
   };

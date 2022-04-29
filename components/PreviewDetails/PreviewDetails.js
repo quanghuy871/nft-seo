@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {countAsset, removeAsset} from '../../store/manager';
+import {countAsset, removeAsset, updateCollectionState} from '../../store/manager';
 import close from '../../assets/images/close.png';
 import onCheckBase64 from '../../utils/onCheckBase64';
 
@@ -14,12 +14,20 @@ function PreviewDetail(props) {
         assets.map((asset, index) =>
           <div key={index} className="col-12">
             <div className="preview-detail-asset">
-              <img alt={asset.displayName} src={onCheckBase64(asset.media.poster.url)} style={{maxWidth: '30px', objectFit: 'contain', maxHeight: '40px'}}/>
+              <img
+                alt={asset.displayName}
+                src={onCheckBase64(asset.media.poster.url)}
+                style={{maxWidth: '30px', objectFit: 'contain', maxHeight: '40px'}}
+              />
+
               <div>{asset.displayName}</div>
+
               <button onClick={() => {
-                dispatch(countAsset({method: 'minus-one'}));
+                dispatch(countAsset({method: 'minus-one', asset: asset}));
                 dispatch(removeAsset(asset));
-              }} className="btn btn-close"><img className="img-fluid" src={close.src} alt="close"/></button>
+              }} className="btn btn-close">
+                <img className="img-fluid" src={close.src} alt="close"/>
+              </button>
             </div>
           </div>,
         )

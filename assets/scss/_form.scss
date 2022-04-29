@@ -31,9 +31,13 @@
     box-shadow: none;
     color: rgb(189, 194, 196);
     cursor: not-allowed;
-    pointer-events: none;
     font-weight: 600;
     border-radius: 16px;
+
+    &:hover {
+      background-color: rgb(233, 234, 235) !important;
+      color: rgb(189, 194, 196) !important;
+    }
   }
 
   &.btn-border-black {

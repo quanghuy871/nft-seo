@@ -19,11 +19,16 @@ function GenerateLink() {
   const router = useRouter();
 
   const handleClick = () => {
-    const walletAddress = params.address;
+    const walletAddress = router.query.address;
     const body = {walletAddress, assetIds, collectionIds};
+
+    if (collectionsState.length <= 0) {
+      return;
+    }
+
     setLoading(true);
 
-    axios.post(`https://testapi.nano-frames.com/pixl-page-service/pages`, body).then(function(response) {
+    axios.post(`https://api.nano-frames.com/pixl-page-service/pages`, body).then(function(response) {
       if (response.data) {
         setPage(`https://${window.location.hostname}/${response.data.alias}`);
         setVisible(true);
@@ -44,9 +49,13 @@ function GenerateLink() {
 
   return (
     <Fragment>
-      <Button tooltipOptions={{position: 'top'}} tooltip="Create Page base on your selection" label={`${loading ? 'CREATING...' : 'CREATE PAGE'}`}
-              className={`btn btn-border-black btn--create ${collectionsState.length > 0 ? '' : 'btn-disabled'}`}
-              onClick={handleClick}/>
+      <Button
+        tooltipOptions={{position: 'top'}}
+        tooltip={collectionsState.length > 0 ? 'Create Page base on your selection' : 'Please select NFTs or collections to be added to your page'}
+        label={`${loading ? 'CREATING...' : 'CREATE PAGE'}`}
+        className={`btn btn-border-black btn--create ${collectionsState.length > 0 ? '' : 'btn-disabled'}`}
+        onClick={handleClick}
+      />
       <Sidebar visible={visible} position="bottom" onHide={() => setVisible(false)}>
         <span className="link__title">Your page has been created!</span>
         <div className="link__main" onClick={copy}>

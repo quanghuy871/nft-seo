@@ -1,6 +1,4 @@
 import {createSlice, current} from '@reduxjs/toolkit';
-import {indexOf} from 'core-js/internals/array-includes';
-import currentCollection from './currentCollection';
 
 const initialState = {
   assetCount: 0,
@@ -14,18 +12,32 @@ export const managerSlice = createSlice({
   initialState: initialState,
   reducers: {
     addCollectionState: (state, action) => {
-      state.collectionsState.push({collection: action.payload, all: true});
+      // state.collectionsState.push({collection: action.payload, all: true});
+      state.collectionsState.push({collection: action.payload, assetCount: action.payload.assetCount});
+
       console.log(current(state));
+    },
+
+    updateAssets: (state, action) => {
+      state.assets = state.assets.concat(action.payload);
     },
 
     updateCollectionState: (state, action) => {
       let hasAssets = state.assets.some((asset) => asset.collectionId === state.currentCollection.id);
       let position = state.collectionsState.findIndex((collectionState) => collectionState.collection.id === state.currentCollection.id);
+      let assetCount = state.assets.filter(el => el.collectionId === state.currentCollection.id);
+
       if (hasAssets) {
         if (position !== -1) {
-          state.collectionsState[position] = {collection: state.currentCollection, all: action.payload};
+          state.collectionsState[position] = {
+            collection: state.currentCollection,
+            assetCount: assetCount.length,
+          };
         } else {
-          state.collectionsState.push({collection: state.currentCollection, all: action.payload});
+          state.collectionsState.push({
+            collection: state.currentCollection,
+            assetCount: assetCount.length,
+          });
         }
       } else {
         state.collectionsState.splice(position, 1);
@@ -80,19 +92,19 @@ export const managerSlice = createSlice({
         state.assetCount += 1;
 
       } else if (action.payload.method === 'minus-one') {
+        if (action.payload.asset) {
+          const position = state.collectionsState.findIndex(el => el.collection.id === action.payload.asset.collectionId);
+          state.collectionsState[position].assetCount -= 1;
+        }
+
         state.assetCount -= 1;
 
       } else if (action.payload.method === 'remove-only-selection') {
         const collection = state.collectionsState.find(el => el.collection.id === action.payload.collection.id);
 
-        if (collection.all) {
-          state.assetCount -= action.payload.collection.assetCount;
+        const count = state.assets.filter(el => el.collectionId === action.payload.collection.id);
+        state.assetCount -= count.length;
 
-        } else {
-          const count = state.assets.filter(el => el.collectionId === action.payload.collection.id);
-          state.assetCount -= count.length;
-
-        }
       } else {
         state.assetCount -= action.payload.collection.assetCount;
       }
@@ -104,6 +116,7 @@ export const managerSlice = createSlice({
 
 export const {
   addCollectionState,
+  updateAssets,
   updateCollectionState,
   removeCollectionState,
   addAsset,

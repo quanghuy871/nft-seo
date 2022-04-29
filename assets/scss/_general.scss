@@ -434,6 +434,15 @@ input[type="email"] {
   z-index: 1001;
 }
 
+.p-badge {
+  @include st-transition;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
 .asset__rectangle {
   .p-sidebar-full {
     .p-sidebar {

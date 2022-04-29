@@ -12,7 +12,7 @@ function ContentAddressInput() {
 
   const handlerSearch = async (e, page = 0) => {
     e.preventDefault();
-    await fetch(`https://testapi.nano-frames.com/asset-service/wallets/${value}/collections?page=${page}&pageSize=5`).then((res) => {
+    await fetch(`https://api.nano-frames.com/asset-service/wallets/${value}/collections?page=${page}&pageSize=5`).then((res) => {
       if (res.ok) {
         router.push(`/address/${value.trim()}/collections`);
       } else {

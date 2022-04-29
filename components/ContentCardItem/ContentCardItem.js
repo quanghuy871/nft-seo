@@ -9,6 +9,7 @@ import {isCollectionsSelectedState} from '../../store/selector';
 import {useOnLoadImages} from '../../utils/onLoadImages';
 import {onUnitCheck} from '../../utils/onUnitCheck';
 import onCheckBase64 from '../../utils/onCheckBase64';
+import onFetchAssets from '../../utils/onFetchAssets';
 
 function ContentCardItem(props) {
   const wrapper = useRef();
@@ -28,6 +29,7 @@ function ContentCardItem(props) {
     if (!checked) {
       dispatch(addCollectionState(props.collection));
       dispatch(countAsset({method: 'add', collection: props.collection}));
+      onFetchAssets(router.query.address, props.collection.id, dispatch);
     } else {
       dispatch(removeAssetsOfCollection(props.collection));
       dispatch(removeCollectionState(props.collection));
