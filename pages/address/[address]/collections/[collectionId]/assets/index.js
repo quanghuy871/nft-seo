@@ -12,6 +12,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 function Assets() {
   const [assets, setAssets] = useState([]);
   const [selectAll, setSelectAll] = useState(false);
+  const [collectionName, setCollectionName] = useState('');
   const [value, setValue] = useState('');
   const [loading, setLoading] = useState(true);
   const [syncStatus, setSyncStatus] = useState(true);
@@ -21,6 +22,7 @@ function Assets() {
   const dispatch = useDispatch();
   const currentCollection = useSelector(state => state.currentCollection.currentCollection.name);
   const collectionState = useSelector((state) => getCollectionState(state));
+  let assetNameFromStorage;
 
   const removeAssets = (assets) => {
     for (const asset of assets) {
@@ -57,6 +59,7 @@ function Assets() {
       if (data && data.items && data.items.length > 0) {
         setTotalCount(data.totalCount);
         setSyncStatus(false);
+        setCollectionName(data.items[0].collectionName);
 
         if (collectionState.all) {
           setSelectAll(true);
@@ -98,7 +101,7 @@ function Assets() {
         <div className="assets-controls">
           <div className="assets-controls__count">
             <h2 className="mb-2">Your Assets ({totalCount ? totalCount : 'synchronizing...'})</h2>
-            <h2>Collection: <span className="collection__name">{currentCollection ? currentCollection : ''}</span></h2>
+            <h2>Collection: <span className="collection__name">{currentCollection ? currentCollection : collectionName}</span></h2>
           </div>
 
           <div className="assets-controls__preview">
