@@ -1,0 +1,642 @@
+@import "../../assets/scss/mixins";
+@import "../../assets/scss/variables";
+
+.el-assets-left {
+  height: 100%;
+  display: none;
+
+  @include media-breakpoint-up(xl) {
+    display: block;
+  }
+}
+
+.grid {
+  position: relative;
+  height: 100%;
+}
+
+.grid-item {
+  height: auto;
+  position: absolute;
+  @include st-transition;
+
+  &:hover {
+    z-index: 100;
+    transform: scale(1.2);
+  }
+
+  &.item-1 {
+    $w: 140px;
+    height: auto;
+    left: 20px;
+    top: 10px;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 50px;
+      }
+    }
+  }
+
+  &.item-2 {
+    $w: 120px;
+    left: 20px;
+    top: 21%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 50px;
+      }
+    }
+  }
+
+  &.item-3 {
+    $w: 175px;
+    left: 10px;
+    top: 38%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 65px;
+      }
+    }
+  }
+
+  &.item-4 {
+    $w: 90px;
+    left: 20px;
+    top: 63%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-5 {
+    $w: 140px;
+    left: 20px;
+    top: 77%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-6 {
+    $w: 100px;
+    left: 11%;
+    top: 13%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-7 {
+    $w: 130px;
+    left: 11%;
+    top: 27%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-8 {
+    $w: 50px;
+    left: 13.5%;
+    top: 45%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-9 {
+    $w: 115px;
+    left: 12.5%;
+    top: 52.5%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-10 {
+    $w: 65px;
+    left: 8.5%;
+    top: 61.5%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-11 {
+    $w: 100px;
+    left: 11%;
+    top: 70%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-12 {
+    $w: 55px;
+    left: 20%;
+    top: 26%;
+
+    @include media-breakpoint-up(xxl) {
+      left: 19%;
+      top: 24%;
+    }
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-13 {
+    $w: 90px;
+    left: 18%;
+    top: 42.3%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-14 {
+    $w: 60px;
+    left: 18%;
+    top: 67%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-15 {
+    $w: 60px;
+    left: 22%;
+    top: 60%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-16 {
+    $w: 85px;
+    left: 25%;
+    top: 50%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-17 {
+    $w: 80px;
+    left: 23.5%;
+    top: 31%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-18 {
+    $w: 50px;
+    left: 28.5%;
+    top: 40%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-19 {
+    $w: 50px;
+    left: 31%;
+    top: 47%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-20 {
+    $w: 140px;
+    height: auto;
+    right: 20px;
+    top: 10px;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 50px;
+      }
+    }
+  }
+
+  &.item-21 {
+    $w: 120px;
+    right: 20px;
+    top: 21%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 50px;
+      }
+    }
+  }
+
+  &.item-22 {
+    $w: 175px;
+    right: 10px;
+    top: 38%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 65px;
+      }
+    }
+  }
+
+  &.item-23 {
+    $w: 100px;
+    right: 20px;
+    top: 63%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-24 {
+    $w: 140px;
+    right: 20px;
+    top: 77%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-25 {
+    $w: 80px;
+    right: 12%;
+    top: 14%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-26 {
+    $w: 100px;
+    right: 12.5%;
+    top: 34.2%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-27 {
+    $w: 65px;
+    right: 14.7%;
+    top: 61.4%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-28 {
+    $w: 90px;
+    right: 13.1%;
+    top: 48.5%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-29 {
+    $w: 80px;
+    right: 8.6%;
+    top: 60.3%;
+
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-30 {
+    $w: 95px;
+    right: 10.6%;
+    top: 71.6%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-31 {
+    $w: 90px;
+    right: 17%;
+    top: 22%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-32 {
+    $w: 50px;
+    right: 17.9%;
+    top: 69%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-33 {
+    $w: 75px;
+    right: 21%;
+    top: 61%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-34 {
+    $w: 60px;
+    right: 22%;
+    top: 60%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-35 {
+    $w: 100px;
+    right: 24.5%;
+    top: 49%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-36 {
+    $w: 90px;
+    right: 22%;
+    top: 32%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-37 {
+    $w: 55px;
+    right: 28%;
+    top: 40%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-38 {
+    $w: 50px;
+    right: 31.5%;
+    top: 47%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-39 {
+    $w: 55px;
+    left: 19.9%;
+    top: 34.5%;
+
+    @include media-breakpoint-up(xxl) {
+      left: 19.1%;
+      top: 34.2%;
+    }
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-40 {
+    $w: 55px;
+    left: 24.5%;
+    top: 42.4%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-41 {
+    $w: 70px;
+    right: 9.9%;
+    top: 25.8%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-42 {
+    $w: 55px;
+    right: 19.8%;
+    top: 53.4%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+
+  &.item-43 {
+    $w: 70px;
+    right: 20%;
+    top: 43.4%;
+
+    img {
+      width: $w;
+
+      @include media-breakpoint-up(xxl) {
+        width: $w + 30px;
+      }
+    }
+  }
+}

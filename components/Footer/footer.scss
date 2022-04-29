@@ -1,0 +1,26 @@
+@import "../../assets/scss/mixins";
+@import "../../assets/scss/variables";
+
+.footer {
+  padding-bottom: 15px;
+
+  @include media-breakpoint-up(sm) {
+    padding-bottom: 0;
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    right: 50%;
+    transform: translate(50%, 0);
+  }
+
+  p {
+    margin-bottom: 13px;
+    color: var(--text-color-1);
+  }
+
+  img {
+    filter: var(--filter-img);
+    max-width: 175px !important;
+    width: 100% !important;
+  }
+}

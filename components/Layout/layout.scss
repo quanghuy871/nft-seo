@@ -1,0 +1,11 @@
+@import "../../assets/scss/mixins";
+@import "../../assets/scss/variables";
+
+.main-content {
+  height: 100vh;
+
+  @include media-breakpoint-down(sm) {
+    min-height: 720px;
+    max-height: 720px;
+  }
+}

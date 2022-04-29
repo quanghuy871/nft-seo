@@ -1,0 +1,46 @@
+@import "../../assets/scss/mixins";
+@import "../../assets/scss/variables";
+
+.preview-detail-collection {
+  border: solid #dee2e6;
+  border-width: 0 0 2px 0;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+  padding-top: 20px;
+
+  .text-sm {
+    @include media-breakpoint-down(sm) {
+      max-width: 170px;
+    }
+  }
+
+  img {
+    margin: 0 10px 10px 10px;
+    box-shadow: 1px 1px 5px 0.5px var(--text-color-1);
+  }
+
+  .text-sm {
+    color: var(--text-color-1);
+  }
+
+  .preview-detail-asset {
+    display: flex;
+    padding-left: 3.5rem;
+    margin-bottom: 15px;
+
+    span {
+      background: var(--text-color-1);
+      color: var(--card-bg-color);
+      font-size: 0.75rem;
+      padding: 3px 10px;
+    }
+
+    div {
+      color: var(--text-color-1);
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      max-width: 245px;
+    }
+  }
+}

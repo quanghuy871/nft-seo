@@ -1,0 +1,67 @@
+@import "../../assets/scss/mixins";
+@import "../../assets/scss/variables";
+
+.el-address-input {
+  max-width: 440px;
+
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    width: 100%;
+    transform: translate(50%, 20px);
+  }
+
+  @include media-breakpoint-up(xxl) {
+    max-width: 540px;
+  }
+
+  h3 {
+    font-size: rem(18px);
+    color: var(--text-color-1);
+    margin-bottom: 50px;
+
+    @include media-breakpoint-up(xxl) {
+      margin-bottom: 65px;
+      font-size: rem(20px);
+    }
+  }
+
+  &__wrapper {
+    max-width: 410px;
+
+    @include media-breakpoint-up(xxl) {
+      max-width: 530px;
+    }
+
+    span {
+      width: 100%;
+    }
+
+    i {
+      left: 0.75rem;
+      color: #6c757d;
+    }
+
+    input {
+      width: 100%;
+      font-family: 'Cartograph CF', sans-serif;
+      color: $gray-dark;
+      font-size: rem(13px);
+      background-color: #fff;
+      padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+      border: 1px solid #ced4da;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+      border-radius: 6px;
+
+      @include media-breakpoint-up(xxl) {
+        font-size: rem(18px);
+      }
+
+      &:hover {
+        border-color: $black;
+      }
+    }
+  }
+}

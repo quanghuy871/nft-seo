@@ -1,0 +1,163 @@
+@import "../../assets/scss/mixins";
+@import "../../assets/scss/variables";
+
+.header {
+  z-index: 100;
+  padding: 20px 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  &.flex-header {
+    position: relative;
+
+    .header__wrapper {
+      position: relative;
+      right: unset;
+      transform: unset;
+      top: unset;
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+    position: absolute;
+    right: 50%;
+    top: 20px;
+    transform: translate(50%, 0);
+
+    @include media-breakpoint-up(lg) {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+    }
+
+    @include media-breakpoint-up(xl) {
+      @include flex-item;
+      align-items: flex-start;
+    }
+
+    @include media-breakpoint-up(xxl) {
+      max-width: 1440px;
+    }
+
+    &-menu {
+      min-width: 357px;
+      margin-bottom: 25px;
+
+      @include media-breakpoint-up(xl) {
+        margin-bottom: 0;
+      }
+
+      ul {
+        @include media-breakpoint-down(md) {
+          text-align: center;
+        }
+      }
+
+      li {
+        line-height: 1;
+      }
+
+      a {
+        padding: 0 20px;
+        color: var(--text-color-1);
+        font-weight: 300;
+        font-size: rem(16px);
+        font-family: 'Cartograph CF', sans-serif;
+
+        @include media-breakpoint-up(xl) {
+          font-size: rem(20px);
+        }
+      }
+
+      span {
+        color: var(--text-color-1);
+      }
+    }
+
+    &-logo {
+      margin-bottom: 25px;
+
+      @include media-breakpoint-up(xl) {
+        margin-bottom: 0;
+      }
+
+      img {
+        margin-bottom: 7px;
+        height: 50px !important;
+        filter: var(--filter-img);
+
+        @include media-breakpoint-up(xxl) {
+          height: 70px;
+        }
+      }
+
+      p {
+        font-weight: 300;
+        font-size: rem(16px);
+
+        @include media-breakpoint-up(xxl) {
+          font-size: rem(20px);
+        }
+      }
+
+      .side__logo {
+        display: block;
+
+        p {
+          font-size: rem(13px);
+          margin-bottom: 0;
+        }
+
+        img {
+          width: 150px;
+        }
+      }
+    }
+
+    &-theme {
+      min-width: 357px;
+
+      span {
+        vertical-align: text-bottom;
+        cursor: pointer;
+        margin: 0 15px;
+        font-family: 'Cartograph CF', sans-serif;
+        font-size: rem(14px);
+        font-weight: 300;
+        color: var(--text-color-1);
+      }
+
+      .p-inputswitch {
+        cursor: pointer;
+        border: 1.2px solid var(--switch-border-color);
+        width: 40px;
+        height: 15px;
+      }
+
+      .p-inputswitch-slider {
+        background: transparent;
+
+        &:before {
+          @include st-transition;
+          background: var(--switch-border-color);
+          width: 15px;
+          height: 14px;
+          left: 9px;
+          margin-top: -0.440rem;
+
+          @include media-breakpoint-up(sm) {
+            left: 8px;
+          }
+        }
+      }
+
+      .p-inputswitch-checked {
+        .p-inputswitch-slider:before {
+          transform: translateX(-24px);
+        }
+      }
+    }
+  }
+}

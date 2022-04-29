@@ -1,0 +1,71 @@
+@import "../../assets/scss/mixins";
+@import "../../assets/scss/variables";
+
+.el-metadata-list {
+  text-align: left;
+
+  li {
+    margin-bottom: 5px;
+  }
+
+  span {
+    word-break: break-word;
+    display: block;
+    font-size: rem(14px);
+    color: var(--text-color-1);
+    font-weight: 300;
+
+    @include media-breakpoint-up(lg) {
+      font-size: rem(11px);
+    }
+
+    &.title {
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    &.collection__name {
+      text-transform: uppercase;
+    }
+  }
+
+  .link {
+    word-break: break-word;
+    font-size: rem(11px);
+    font-weight: 300;
+    text-decoration: underline;
+    color: var(--c-blue-1);
+  }
+}
+
+.p-sidebar-right {
+  .el-metadata-list {
+    margin-bottom: 10px;
+  }
+
+  .p-sidebar {
+    @include media-breakpoint-up(lg) {
+      width: 30% !important;
+    }
+
+    &-content {
+      padding: 15px;
+
+      @include media-breakpoint-up(lg) {
+        padding: 0 15px 30px;
+      }
+    }
+  }
+
+  h3 {
+    margin-left: 0;
+  }
+
+  span, .link {
+    font-size: rem(16px);
+
+    @include media-breakpoint-up(lg) {
+      font-size: rem(18px);
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@import "../../assets/scss/mixins";
+@import "../../assets/scss/variables";
+
+.el-accordions {
+  .p-accordion-tab {
+    margin-bottom: 4px;
+    padding:0 15px;
+  }
+
+  .p-accordion-header-link {
+    background: var(--accordion-heading-color);
+    color: #343a40;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+
+    span {
+      color: var(--text-color-1);
+    }
+  }
+
+  .p-accordion-toggle-icon {
+    margin-right: 10px;
+  }
+
+  .p-accordion-content {
+    padding: 1.25rem;
+    border: 1px solid #dee2e6;
+    background: var(--card-bg-color);
+    color: #495057;
+    border-top: 0;
+  }
+}
