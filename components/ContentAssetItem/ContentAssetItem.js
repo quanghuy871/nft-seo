@@ -180,8 +180,8 @@ function ContentAssetItem(props) {
               {
                 pixlAssetsLength > 1 &&
                 <div className="navigators">
-                  <button onClick={e => imageSideHandle('prev')} className="navigators__item navigators__left"><img className="img-fluid" src={arrowLeft} alt=""/></button>
-                  <button onClick={e => imageSideHandle('next')} className="navigators__item navigators__right"><img className="img-fluid" src={arrowRight} alt=""/></button>
+                  <button onClick={e => imageSideHandle('prev')} className="navigators__item navigators__left"><img className="img-fluid" src={arrowLeft.src} alt="prev"/></button>
+                  <button onClick={e => imageSideHandle('next')} className="navigators__item navigators__right"><img className="img-fluid" src={arrowRight.src} alt="next"/></button>
                 </div>
               }
             </Sidebar> :
@@ -192,8 +192,8 @@ function ContentAssetItem(props) {
               {
                 assetsLength > 1 &&
                 <div className="navigators">
-                  <button onClick={() => dispatch(prevAsset())} className="navigators__item navigators__left"><img className="img-fluid" src={arrowLeft} alt=""/></button>
-                  <button onClick={() => dispatch(nextAsset())} className="navigators__item navigators__right"><img className="img-fluid" src={arrowRight} alt=""/></button>
+                  <button onClick={() => dispatch(prevAsset())} className="navigators__item navigators__left"><img className="img-fluid" src={arrowLeft.src} alt="prev"/></button>
+                  <button onClick={() => dispatch(nextAsset())} className="navigators__item navigators__right"><img className="img-fluid" src={arrowRight.src} alt="next"/></button>
                 </div>
               }
             </Sidebar>
