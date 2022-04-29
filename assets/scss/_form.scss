@@ -125,6 +125,12 @@
     border-radius: 50%;
     background-color: $c-white-1;
     border: 1px solid var(--btn-color);
+
+    img {
+      padding: 4px;
+      border-radius: 0;
+      border: none;
+    }
   }
 
   &.arrow__btn {

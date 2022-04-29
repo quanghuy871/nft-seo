@@ -5,6 +5,7 @@ import fullscreenIcon from '../../assets/images/fullscreen-icon.svg';
 import {Button} from 'primereact/button';
 import plus from '../../assets/images/plus.svg';
 import minus from '../../assets/images/minus.svg';
+import metadataBtn from '../../assets/images/metadata.svg';
 import Image from 'next/image';
 
 function Buttons(props) {
@@ -22,7 +23,7 @@ function Buttons(props) {
       {
         type === 'Metadata' &&
         <Button tooltip={props.tooltip} onClick={props.onClick} className="controls__btn showmeta__btn position-absolute">
-          <span style={{width: '100%'}}>M</span>
+          <img className="img-fluid" src={metadataBtn.src} alt=""/>
         </Button>
       }
       {
