@@ -5,7 +5,7 @@ function AssetId(props) {
   return (
     <>
       <SEO title="CARDANOBITS TEST TEST" description="CARDANOBITS TEST TEST"
-           image="https://api.nano-frames.com/asset-service/media/ipfs/UW1TQVNFOG5BcnVDSDg1UmJ0ZTltR3JWNWhkWVFib212eEZtUGVUZEFaN3cxSw==?size=medium"/>
+           image="https://api.nano-frames.com/asset-service/media/ipfs/UW1TQVNFOG5BcnVDSDg1UmJ0ZTltR3JWNWhkWVFib212eEZtUGVUZEFaN3cxSw=="/>
       <div className="asset__individual">
         <div className="container">
           <div className="asset__individual-wrapper">
