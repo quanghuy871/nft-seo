@@ -10,9 +10,9 @@ const SEO = (props) => {
     <Head>
       <title>{title}</title>
       <meta name="description" content={description}/>
-      <meta itemprop="name" content={title}/>
-      <meta itemprop="description" content={description}/>
-      <meta itemprop="image" content={image.src}/>
+      <meta property="og:name" content={title}/>
+      <meta property="og:description" content={description}/>
+      <meta property="og:image" content={image.src}/>
     </Head>
   );
 };

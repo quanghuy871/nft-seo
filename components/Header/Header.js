@@ -73,11 +73,11 @@ function Header(props) {
         <div className="header__wrapper justify-content-lg-around">
           <div className="header__wrapper-menu text-left">
             <ul className="list-unstyled">
-              <li className="list-inline-item"><a target="_blank" href="https://twitter.com/pixl_page">Twitter</a></li>
+              <li className="list-inline-item"><a target="_blank" rel="noreferrer" href="https://twitter.com/pixl_page">Twitter</a></li>
               <li className="list-inline-item"><a onClick={() => setVisibleLeft(true)} href="#">FAQ</a></li>
               {
                 router.pathname !== '/' &&
-                <li className="list-inline-item"><a target="_blank" href="https://forms.gle/6wV1pdktKPLuNTLz9">Feedback</a></li>
+                <li className="list-inline-item"><a target="_blank" rel='noreferrer' href="https://forms.gle/6wV1pdktKPLuNTLz9">Feedback</a></li>
               }
             </ul>
           </div>
