@@ -25,7 +25,7 @@ function Preview() {
         <button onClick={() => {
           dispatch(countAsset({method: 'remove-only-selection', collection: collection}));
           dispatch(removeCollectionState(collection));
-        }} className="btn btn-close"><img className="img-fluid" src={close} alt="close"/></button>
+        }} className="btn btn-close"><img className="img-fluid" src={close.src} alt="close"/></button>
         {
           collectionState.all ?
             <div className="preview-detail">

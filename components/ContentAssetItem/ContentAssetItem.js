@@ -62,7 +62,6 @@ function ContentAssetItem(props) {
     }
 
     if (imgRef.current.naturalHeight + 100 < imgRef.current.naturalWidth) {
-      console.log(imgRef.current.naturalHeight);
       itemWrapper.current.classList.add('asset__rectangle');
       wrapperEl.classList.add('grid__fit-rectangle');
     }

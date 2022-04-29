@@ -17,8 +17,6 @@ function Header(props) {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  console.log(router);
-
   useEffect(() => {
   }, [router]);
 

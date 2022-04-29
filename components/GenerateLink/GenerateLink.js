@@ -3,7 +3,7 @@ import {Button} from 'primereact/button';
 import {Sidebar} from 'primereact/sidebar';
 import {useSelector} from 'react-redux';
 import {getAssetIds, getCollectionIds} from '../../store/selector';
-import {useParams} from 'react-router-dom';
+import {useRouter} from 'next/router';
 
 const axios = require('axios');
 
@@ -16,7 +16,7 @@ function GenerateLink() {
   const assetIds = useSelector((state) => getAssetIds(state));
   const collectionsState = useSelector(state => state.manager.collectionsState);
   const assets = useSelector(state => state.manager.assets);
-  const params = useParams();
+  const router = useRouter();
 
   const handleClick = () => {
     const walletAddress = params.address;

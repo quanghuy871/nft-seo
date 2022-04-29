@@ -16,7 +16,7 @@ function Buttons(props) {
       {
         type === 'Select' &&
         <Button tooltip={props.tooltip} data-pr-tooltip={props.tooltip} onClick={props.onClick} className="controls__btn select__btn position-absolute">
-          <Image className="img-fluid" src={props.checked ? minus : plus} alt={props.name}/>
+          <img className="img-fluid" src={props.checked ? minus.src : plus.src} alt={props.name}/>
         </Button>
       }
       {
@@ -28,13 +28,13 @@ function Buttons(props) {
       {
         type === 'Metadata Sidebar' &&
         <Button tooltip={props.tooltip} onClick={props.onClick} className="controls__btn arrow__btn position-absolute">
-          <img className="img-fluid" src={arrow} alt=""/>
+          <img className="img-fluid" src={arrow.src} alt=""/>
         </Button>
       }
       {
         type === 'Fullscreen' &&
         <Button tooltip={props.tooltip} onClick={props.onClick} className="controls__btn fullscreen__btn position-absolute">
-          <img className="img-fluid" src={fullscreenIcon} alt=""/>
+          <img className="img-fluid" src={fullscreenIcon.src} alt=""/>
         </Button>
       }
     </>

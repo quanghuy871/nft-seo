@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {InputText} from 'primereact/inputtext';
-import {useNavigate} from 'react-router-dom';
 import {Dialog} from 'primereact/dialog';
 import PageCounter from '../ContentPageCounter/ContentPageCounter';
 import signal from '../../assets/images/signal.png';
