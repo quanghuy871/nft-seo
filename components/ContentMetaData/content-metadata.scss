@@ -44,9 +44,7 @@
   }
 
   .p-sidebar {
-    @include media-breakpoint-up(lg) {
-      width: 30% !important;
-    }
+    max-width: 540px;
 
     &-content {
       padding: 15px;
