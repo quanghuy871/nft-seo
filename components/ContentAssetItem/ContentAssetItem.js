@@ -131,6 +131,8 @@ function ContentAssetItem(props) {
     }
   };
 
+  console.log(props.assets);
+
   return (
     <div className={`${flip ? 'flipped' : ''} ${checked ? 'selected' : ''} ${imagesLoaded ? '' : 'mw-fixed'}`}>
       <div className={`el-asset-item`} ref={itemWrapper}>
