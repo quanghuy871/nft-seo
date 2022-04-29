@@ -41,7 +41,7 @@ function Preview() {
 
   return (
     <Fragment>
-      <Button label={`Preview selection`} className="btn btn-border-black btn--preview" onClick={() => setVisible(true)}/>
+      <Button label="Preview selection" className="btn btn-border-black btn--preview" onClick={() => setVisible(true)}/>
       <Sidebar visible={visible} position="right" onHide={() => setVisible(false)}>
         <ScrollPanel style={{width: '100%', height: '100%'}}>
           <h3>Your selection</h3>

@@ -1,10 +1,8 @@
 import React from 'react';
 import ContentCardItem from '../ContentCardItem/ContentCardItem';
 import ContentAssetItem from '../ContentAssetItem/ContentAssetItem';
-import {useDispatch} from 'react-redux';
 
 function ContentCardList(props) {
-  const dispatch = useDispatch();
   let collections, assets;
 
   if (props.type === 'collections') {

@@ -1,16 +1,13 @@
-@import "../../assets/scss/mixins";
-@import "../../assets/scss/variables";
+@import "assets/scss/mixins";
+@import "assets/scss/variables";
 
 .el-address-input {
   max-width: 440px;
-
-  @include media-breakpoint-up(md) {
-    position: absolute;
-    bottom: 50%;
-    right: 50%;
-    width: 100%;
-    transform: translate(50%, 20px);
-  }
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  width: 100%;
+  transform: translate(50%, 20px);
 
   @include media-breakpoint-up(xxl) {
     max-width: 540px;

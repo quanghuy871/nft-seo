@@ -54,7 +54,7 @@ function Collections(props) {
 
   useEffect(() => {
     fetchNFTs();
-  }, [router.query.address, props.selectAll]);
+  }, [router.query.address, props.selectAll, fetchNFTs]);
 
   const sortByName = () => {
     const newArr = collections.slice();

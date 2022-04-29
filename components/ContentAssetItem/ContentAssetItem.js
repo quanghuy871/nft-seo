@@ -14,6 +14,7 @@ import arrowRight from './../../assets/images/arrow-right.svg';
 import arrowLeft from './../../assets/images/arrow-left.svg';
 import {Image} from 'primereact/image';
 import {countAsset, removeAsset, addAsset, addCollectionState, removeAssetsOfCollection, removeCollectionState, updateCollectionState} from '../../store/manager';
+import onCheckBase64 from '../../utils/onCheckBase64';
 
 function ContentAssetItem(props) {
   const [flip, setFlip] = useState(false);
@@ -139,7 +140,7 @@ function ContentAssetItem(props) {
             !imagesLoaded && <i className="pi pi-spin pi-spinner"></i>
           }
 
-          <img onClick={lightboxHandle} ref={imgRef} className="img-fluid" src={props.assets.media.poster.url} alt={props.assets.displayName}/>
+          <img onClick={lightboxHandle} ref={imgRef} className="img-fluid" src={onCheckBase64(props.assets.media.poster.url)} alt={props.assets.displayName}/>
 
           <div className="el-asset-item__img-meta">
             {
@@ -157,7 +158,7 @@ function ContentAssetItem(props) {
         </div>
 
         <div className="el-asset-item__data position-relative">
-          <h6>{subString(props.assets.displayName ? props.assets.displayName : props.assets.name)}</h6>
+          <h6>{props.assets.displayName ? props.assets.displayName : props.assets.name}</h6>
           {
             imagesLoaded && <Buttons tooltip="Metadata" type="Metadata" onClick={showMetaHandle}/>
           }
@@ -165,7 +166,7 @@ function ContentAssetItem(props) {
           {
             flip ?
               <Buttons tooltip="Expand metadata" type="Metadata Sidebar" onClick={metadataSidebarHandle}/> :
-              currentPage && <Buttons tooltip={checked ? 'Unselect asset' : 'Select asset'} type="Select" onClick={selectHandle}/>
+              currentPage && <Buttons checked={checked} tooltip={checked ? 'Unselect asset' : 'Select asset'} type="Select" onClick={selectHandle}/>
           }
         </div>
 

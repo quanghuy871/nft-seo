@@ -6,8 +6,8 @@ function Url(props) {
     <Fragment>
       {
         onUrl(props.value) ?
-          <a style={{marginLeft: "6px"}} className="link" href={props.value} target="_blank" rel="noreferrer nofollow">{props.value}</a> :
-          <span style={{marginLeft: "6px"}}>"{props.value}"</span>
+          <a style={{marginLeft: '6px'}} className="link" href={props.value} target="_blank" rel="noreferrer nofollow">{props.value}</a> :
+          <span style={{marginLeft: '6px'}}>"{props.value}"</span>
       }
     </Fragment>
   );

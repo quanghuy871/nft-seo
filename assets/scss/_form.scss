@@ -89,9 +89,10 @@
   height: 20px;
   width: 20px;
   cursor: pointer;
-  border: none;
   padding: 0;
   background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid var(--btn-color) !important;
 
   @include media-breakpoint-up(md) {
     height: 20px;
@@ -110,7 +111,7 @@
     right: 0;
 
     img {
-      padding: 4px;
+      padding: 4px !important;
     }
   }
 
@@ -124,7 +125,7 @@
     width: 20px;
     border-radius: 50%;
     background-color: $c-white-1;
-    border: 1px solid var(--btn-color);
+    border: 1px solid var(--btn-color) !important;
   }
 
   &.arrow__btn {

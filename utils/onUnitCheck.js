@@ -1,5 +1,3 @@
-import React from 'react';
-
 let SI_SYMBOL = ['', 'K', 'M', 'G', 'T', 'P', 'E'];
 
 export function onUnitCheck(number) {
@@ -17,5 +15,12 @@ export function onUnitCheck(number) {
   let scaled = number / scale;
 
   // format number and add suffix
-  return scaled.toFixed(1) + suffix;
+  let newScaled = scaled.toFixed(1) + suffix;
+  let zeroScaled = newScaled.toString().split('');
+
+  if (zeroScaled[zeroScaled.length - 2] === '0') {
+    return scaled.toFixed(0) + suffix;
+  }
+
+  return newScaled;
 }

@@ -1,15 +1,14 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {subString} from '../../utils/subString';
-import {useOnLoadImages} from '../../utils/onLoadImages';
-import {useDispatch} from 'react-redux';
-import Button from '../Buttons/Buttons';
-import {addCollectionState, setCurrentCollection, removeAssetsOfCollection, removeCollectionState, countAsset} from '../../store/manager';
-import {setCurrentCollectionName} from '../../store/currentCollection';
-import {useSelector} from 'react-redux';
-import {isCollectionsSelectedState} from '../../store/selector';
-import {onUnitCheck} from '../../utils/onUnitCheck';
-import {Tooltip} from 'primereact/tooltip';
+import {useDispatch, useSelector} from 'react-redux';
 import {useRouter} from 'next/router';
+import {Tooltip} from 'primereact/tooltip';
+import Button from '../Buttons/Buttons';
+import {setCurrentCollectionName} from '../../store/currentCollection';
+import {addCollectionState, setCurrentCollection, removeAssetsOfCollection, removeCollectionState, countAsset} from '../../store/manager';
+import {isCollectionsSelectedState} from '../../store/selector';
+import {useOnLoadImages} from '../../utils/onLoadImages';
+import {onUnitCheck} from '../../utils/onUnitCheck';
+import onCheckBase64 from '../../utils/onCheckBase64';
 
 function ContentCardItem(props) {
   const wrapper = useRef();
@@ -22,7 +21,7 @@ function ContentCardItem(props) {
   const clickHandle = () => {
     dispatch(setCurrentCollection(props.collection));
     dispatch(setCurrentCollectionName(props.collection));
-    router.push(`/address/${params.address}/collections/${collectionId}/assets`);
+    router.push(`/address/${router.query.address}/collections/${collectionId}/assets`);
   };
 
   const selectHandle = () => {
@@ -44,20 +43,26 @@ function ContentCardItem(props) {
         }
         <div className="el-card-item__img--wrapper">
           <div className="el-card-item__img--main" ref={wrapper}>
-            <img loading="lazy" className="img-fluid" src={props.collection.poster.url} alt={props.collection.name}/>
+            <img
+              loading="lazy"
+              className="img-fluid"
+              src={onCheckBase64(props.collection.poster.url)}
+              alt={props.collection.name}/>
           </div>
         </div>
       </div>
 
       <div className="el-card-item__data text-center position-relative">
-        <Tooltip target=".assets__count"/>
-        <div className="assets__count" data-pr-tooltip="Number of asset">
-          <span>{props.collection.assetCount ? onUnitCheck(props.collection.assetCount) : ''}</span>
+        <div className="assets__count">
+          <Tooltip target=".count"/>
+          <span className="count" data-pr-tooltip="Number of asset">
+            {props.collection.assetCount ? onUnitCheck(props.collection.assetCount) : ''}
+          </span>
         </div>
 
-        <h6>{subString(props.collection.name)}</h6>
+        <h6>{props.collection.name}</h6>
 
-        <Button tooltip={checked ? 'Unselect collection' : 'Select collection'} onClick={selectHandle} type="Select" name={props.collection.name}/>
+        <Button checked={checked} tooltip={checked ? 'Unselect collection' : 'Select collection'} onClick={selectHandle} type="Select" name={props.collection.name}/>
       </div>
     </div>
   );

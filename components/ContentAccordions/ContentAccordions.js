@@ -6,7 +6,7 @@ function ContentAccordions() {
     <div className="el-accordions">
       <Accordion activeIndex={0}>
         <AccordionTab header="Why pixl.page?">
-          <p>Pixl.page let's you view your NFT collections and gives you the freedom to create pages based on a selection of your NFTs.</p>
+          <p>Pixl.page let&apos;s you view your NFT collections and gives you the freedom to create pages based on a selection of your NFTs.</p>
         </AccordionTab>
 
         <AccordionTab header="What can I do with pixl.page?">
@@ -15,7 +15,8 @@ function ContentAccordions() {
         </AccordionTab>
 
         <AccordionTab header="How does it work?">
-          <p>Easy! Select entire collections or individual NFTs, preview your selection, and if you're happy with it, generate a pixl.page. This page will only contain the assets you selected.</p>
+          <p>Easy! Select entire collections or individual NFTs, preview your selection, and if you&apos;re happy with it, generate a pixl.page. This page will only contain the assets you
+            selected.</p>
         </AccordionTab>
 
         <AccordionTab header="What wallets are supported?">
@@ -35,11 +36,11 @@ function ContentAccordions() {
         </AccordionTab>
 
         <AccordionTab header="Why do I need to connect my wallet?">
-          <p>You don't have to! You can create unlimited pages without logging in. Connecting your wallet allows you to edit the pages you created!</p>
+          <p>You don&apos;t have to! You can create unlimited pages without logging in. Connecting your wallet allows you to edit the pages you created!</p>
         </AccordionTab>
 
         <AccordionTab header="Can I edit my page once I created it?">
-          <p>You don't have to! You can create unlimited pages without logging in. Connecting your wallet allows you to edit the pages you created!</p>
+          <p>You don&apos;t have to! You can create unlimited pages without logging in. Connecting your wallet allows you to edit the pages you created!</p>
         </AccordionTab>
 
         <AccordionTab header="Why do I need to connect my wallet?">
@@ -55,7 +56,7 @@ function ContentAccordions() {
         </AccordionTab>
 
         <AccordionTab header="Where can I see the Metadata of an NFT?">
-          <p>Press the "M" button next to the asset name to flip the card to the Metadata view. If you want to see the Metadata in a larger sidebar, press the ARROW button</p>
+          <p>Press the &quot;M&quot; button next to the asset name to flip the card to the Metadata view. If you want to see the Metadata in a larger sidebar, press the ARROW button</p>
         </AccordionTab>
 
         <AccordionTab header="Can someone see all the NFTs from my wallet?">

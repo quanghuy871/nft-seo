@@ -89,8 +89,8 @@ function Header(props) {
 
             {
               router.pathname !== '/' &&
-              <Link target="_blank" href="https://www.nano-frames.com/">
-                <a className="side__logo">
+              <Link href="https://www.nano-frames.com/">
+                <a rel="noreferrer" target="_blank" className="side__logo">
                   <p>powered by</p>
                   <Image width="150" className="img-fluid logo" src={NanoLogo} alt="Nano"/>
                 </a>

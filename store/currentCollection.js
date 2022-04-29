@@ -1,6 +1,7 @@
 import {createSlice, current} from '@reduxjs/toolkit';
 
 const initialState = {
+  allCollections: [],
   currentCollection: {},
   currentCollectionAssets: [],
   currentAsset: null,
@@ -11,6 +12,10 @@ const currentCollectionSlice = createSlice({
   name: 'collections',
   initialState: initialState,
   reducers: {
+    setAllCollections: (state, action) => {
+      state.allCollections.concat(action.payload);
+    },
+
     setCurrentCollectionName: (state, action) => {
       localStorage.removeItem('currentCollectionName');
       state.currentCollection = action.payload;
@@ -22,9 +27,9 @@ const currentCollectionSlice = createSlice({
     },
 
     setAsset: (state, action) => {
-      const curState = current(state);
-      const index = curState.currentCollectionAssets.findIndex(el => el.id === action.payload);
-      state.currentAsset = current(state.currentCollectionAssets[index]);
+      const index = state.currentCollectionAssets.findIndex(el => el.id === action.payload);
+      state.currentAsset = state.currentCollectionAssets[index];
+      console.log(current(state));
       state.index = index;
     },
 

@@ -16,7 +16,7 @@ function Asset(props) {
       setMediaType(props.asset.media.files[0].mediaType.type);
     } else {
       setFile(props.asset.media.poster.url);
-      setMediaType(props.asset.media.poster.mediaType.type);
+      setMediaType('image');
     }
   }, [file, mediaType, props]);
 

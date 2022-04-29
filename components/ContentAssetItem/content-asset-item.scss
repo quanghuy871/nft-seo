@@ -1,5 +1,5 @@
-@import "../../assets/scss/mixins";
-@import "../../assets/scss/variables";
+@import "assets/scss/mixins";
+@import "assets/scss/variables";
 
 .el-asset-item {
   text-align: center;
@@ -82,6 +82,10 @@
       text-transform: uppercase;
       font-size: rem(8px);
       max-width: 270px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
 
       @include media-breakpoint-up(sm) {
         font-size: rem(14px);
@@ -95,7 +99,7 @@
   }
 
   &:hover {
-    .select__btn, .showmeta__btn, .fullscreen__btn {
+    .select__btn, .showmeta__btn, .fullscreen__btn, .arrow__btn {
       visibility: visible;
       opacity: 1;
     }
