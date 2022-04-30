@@ -131,17 +131,25 @@ function ContentAssetItem(props) {
     }
   };
 
-  console.log(props.assets);
-
   return (
     <div className={`${flip ? 'flipped' : ''} ${checked ? 'selected' : ''} ${imagesLoaded ? '' : 'mw-fixed'}`}>
       <div className={`el-asset-item`} ref={itemWrapper}>
         <div className="el-asset-item__img" ref={wrapper}>
           {
+            flip ?
+              <Buttons className="gallery-mode__only expand__metadata" tooltip="Expand metadata" type="Metadata Sidebar" onClick={metadataSidebarHandle}/> :
+              currentPage && <Buttons className="gallery-mode__only select" checked={checked} tooltip={checked ? 'Unselect asset' : 'Select asset'} type="Select" onClick={selectHandle}/>
+          }
+
+          {
             !imagesLoaded && <i className="pi pi-spin pi-spinner"></i>
           }
 
-          <img onClick={lightboxHandle} ref={imgRef} className="img-fluid" src={onCheckBase64(props.assets.media.poster.url)} alt={props.assets.displayName}/>
+          {
+            imagesLoaded && <Buttons className="gallery-mode__only metadata" tooltip="Metadata" type="Metadata" onClick={showMetaHandle}/>
+          }
+
+          <img onClick={lightboxHandle} ref={imgRef} className="img-fluid main__img" src={onCheckBase64(props.assets.media.poster.url)} alt={props.assets.displayName}/>
 
           <div className="el-asset-item__img-meta">
             {

@@ -90,7 +90,7 @@ function Collections(props) {
               collections.length > 1 &&
               <span className="p-input-icon-left">
               <i className="pi pi-search"/>
-              <InputText value={value} onChange={(e) => setValue(e.target.value.toLowerCase())} placeholder="Search"/>
+              <InputText value={value} onChange={(e) => setValue(e.target.value.toLowerCase())} placeholder="Search..."/>
               </span>
             }
 

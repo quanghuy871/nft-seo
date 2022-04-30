@@ -24,7 +24,7 @@ function Preview() {
     return (
       <div className="grid preview-detail-collection">
         <img alt={collection.name} src={onCheckBase64(collection.poster.url)} style={{maxWidth: '40px', objectFit: 'contain', maxHeight: '50px'}}/>
-        <div className="col-9 text-sm font-bold">{collection.name}</div>
+        <div className="col-9 text-sm font-bold main__collections">{collection.name}</div>
         <button onClick={() => {
           dispatch(countAsset({method: 'remove-only-selection', collection: collection}));
           dispatch(removeCollectionState(collection));

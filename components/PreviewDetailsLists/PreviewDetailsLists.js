@@ -15,7 +15,7 @@ function PreviewDetailsLists(props) {
       <div className="preview-detail">
         <div className="col-12">
           <div className="preview-detail-asset" onClick={showAssetsHandle}>
-            <Badge value={`Show asset: ${props.assetCount}`}></Badge>
+            <Badge value={`Show assets: ${props.assetCount}`}></Badge>
           </div>
         </div>
       </div>

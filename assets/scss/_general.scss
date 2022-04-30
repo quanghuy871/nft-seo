@@ -362,6 +362,7 @@ input[type="email"] {
 
       .p-sidebar-header {
         display: block !important;
+        text-align: -webkit-right;
       }
 
       .fullscreen__btn {
@@ -561,7 +562,6 @@ input[type="email"] {
       background-color: transparent;
       border: 1px solid var(--btn-color);
       padding: 5px 15px 5px 35px;
-      border-radius: 4px;
       height: 35px;
       font-size: rem(12px);
 
@@ -620,6 +620,10 @@ input[type="email"] {
     .select__btn {
       visibility: visible;
       opacity: 1;
+    }
+
+    .el-asset-item__img {
+      background-color: var(--item-selected);
     }
 
     .el-asset-item__img-meta {

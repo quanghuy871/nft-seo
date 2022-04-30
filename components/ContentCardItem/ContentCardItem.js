@@ -39,11 +39,14 @@ function ContentCardItem(props) {
 
   return (
     <div className={`el-card-item ${checked ? 'selected' : ''}`}>
-      <div className="el-card-item__img" onClick={clickHandle}>
+      <div className="el-card-item__img">
+        <Button className="gallery-mode__only" checked={checked} tooltip={checked ? 'Unselect collection' : 'Select collection'} onClick={selectHandle} type="Select" name={props.collection.name}/>
+
         {
           !imagesLoaded && <i className="pi pi-spin pi-spinner"></i>
         }
-        <div className="el-card-item__img--wrapper">
+
+        <div className="el-card-item__img--wrapper" onClick={clickHandle}>
           <div className="el-card-item__img--main" ref={wrapper}>
             <img
               loading="lazy"
