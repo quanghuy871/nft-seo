@@ -320,19 +320,12 @@ input[type="email"] {
     position: absolute;
     left: 50% !important;
     top: 50% !important;
-    width: 100% !important;
-    height: 40% !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: 650px;
+    min-height: 650px;
     transform: translate(-50%, -50%);
 
-    @include media-breakpoint-up(md) {
-      width: 55% !important;
-      height: 85% !important;
-    }
-
-    @include media-breakpoint-up(lg) {
-      width: 45% !important;
-      height: 85% !important;
-    }
 
     &:hover {
       .fullscreen__btn {
