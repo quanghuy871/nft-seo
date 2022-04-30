@@ -261,8 +261,22 @@
     }
   }
 
+  .el-asset-item__img {
+    background-color: var(--card-bg-color);
+
+    .select__btn {
+      img {
+        border: 1px solid $smoke-black;
+      }
+    }
+
+    .showmeta__btn {
+      border: 1px solid $smoke-black;
+    }
+  }
+
   .el-asset-item__img-meta {
-    border: 1px solid $gray;
+    border: 1px solid var(--text-color-1);
 
     &__wrapper {
       padding: 5px 5px 30px;
