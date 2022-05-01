@@ -23,6 +23,15 @@ function PixlPage({data}) {
 
   const fetchAssets = useCallback(async (page = 0) => {
     try {
+      const response = await fetch(`https://api.nano-frames.com/pixl-page-service/pages/${router.query.pixl}/assets`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const data = await response.json();
+
       if (data && data.items.length > 0) {
         let items = data.items;
         setSyncStatus(false);
@@ -35,13 +44,21 @@ function PixlPage({data}) {
           setAssets(assets.concat(items));
         }
         setLoading(false);
+      } else {
+        throw new Error();
       }
     } catch (e) {
       console.log(e);
     }
   });
 
+  console.log(router);
+
   useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
     fetchAssets();
   }, [router.query.pixl]);
 
@@ -72,20 +89,22 @@ function PixlPage({data}) {
   );
 }
 
-export async function getServerSideProps(context) {
-  // Fetch data from external API
-
-  const response = await fetch(`https://api.nano-frames.com/pixl-page-service/pages/${context.params}/assets`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-
-  const data = await response.json();
-  return {props: {data}};
-
-  // Pass data to the page via props
-}
+// export async function getServerSideProps(context) {
+//   // Fetch data from external API
+//
+//   console.log(context);
+//
+//   const response = await fetch(`https://api.nano-frames.com/pixl-page-service/pages/${context.params.pixl}/assets`, {
+//     method: 'GET',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//   });
+//
+//   const data = await JSON.parse(response.json());
+//   return {props: {data}};
+//
+//   // Pass data to the page via props
+// }
 
 export default PixlPage;
