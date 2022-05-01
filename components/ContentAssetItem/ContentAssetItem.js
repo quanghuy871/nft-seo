@@ -15,6 +15,7 @@ import arrowLeft from './../../assets/images/arrow-left.svg';
 import {Image} from 'primereact/image';
 import {countAsset, removeAsset, addAsset, addCollectionState, removeAssetsOfCollection, removeCollectionState, updateCollectionState} from '../../store/manager';
 import onCheckBase64 from '../../utils/onCheckBase64';
+import {useRouter} from 'next/router';
 
 function ContentAssetItem(props) {
   const [flip, setFlip] = useState(false);
@@ -33,6 +34,7 @@ function ContentAssetItem(props) {
   const assetsLength = useSelector(state => state.currentCollection.currentCollectionAssets).length;
   const pixlAssetsLength = useSelector(state => state.pixl.assets).length;
   const currentPage = document.querySelector('.content-page').classList.contains('assets');
+  const router = useRouter();
   let checked = useSelector((state) => {
     const found = state.manager.assets.findIndex((asset) => asset.id === props.assets.id);
     if (found !== -1) return true;
@@ -132,6 +134,10 @@ function ContentAssetItem(props) {
     }
   };
 
+  const navigateAssetHandle = () => {
+    router.push(`/asset/${props.assets.id}`);
+  };
+
   return (
     <div className={`${flip ? 'flipped' : ''} ${checked ? 'selected' : ''} ${imagesLoaded ? '' : 'mw-fixed'}`}>
       <div className={`el-asset-item`} ref={itemWrapper}>
@@ -168,7 +174,9 @@ function ContentAssetItem(props) {
         </div>
 
         <div className="el-asset-item__data position-relative">
-          <h6>{props.assets.displayName ? props.assets.displayName : props.assets.name}</h6>
+          <div onClick={navigateAssetHandle} style={{margin: '0 auto'}}>
+            <h6>{props.assets.displayName ? props.assets.displayName : props.assets.name}</h6>
+          </div>
           {
             imagesLoaded && <Buttons className="collector-mode__only metadata" tooltip="Metadata" type="Metadata" onClick={showMetaHandle}/>
           }
