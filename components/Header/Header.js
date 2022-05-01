@@ -18,6 +18,23 @@ function Header(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (localStorage.getItem('theme') === 'dark') {
+      dispatch(changeThemeMode('dark'));
+
+      document.body.classList.add('white-content');
+      document.querySelector('.brightness').querySelector('.p-inputswitch').classList.add('p-inputswitch-checked');
+      document.querySelector('.bright').classList.remove('disabled');
+      document.querySelector('.dark').classList.add('disabled');
+      setValue(true);
+    } else {
+      dispatch(changeThemeMode('light'));
+
+      document.body.classList.remove('white-content');
+      document.querySelector('.brightness').querySelector('.p-inputswitch').classList.remove('p-inputswitch-checked');
+      document.querySelector('.bright').classList.add('disabled');
+      document.querySelector('.dark').classList.remove('disabled');
+      setValue(false);
+    }
   }, [router]);
 
   const changeModeHandle = () => {
@@ -75,7 +92,7 @@ function Header(props) {
               <li className="list-inline-item"><a onClick={() => setVisibleLeft(true)} href="#">FAQ</a></li>
               {
                 router.pathname !== '/' &&
-                <li className="list-inline-item"><a target="_blank" rel='noreferrer' href="https://forms.gle/6wV1pdktKPLuNTLz9">Feedback</a></li>
+                <li className="list-inline-item"><a target="_blank" rel="noreferrer" href="https://forms.gle/6wV1pdktKPLuNTLz9">Feedback</a></li>
               }
             </ul>
           </div>
