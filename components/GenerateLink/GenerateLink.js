@@ -27,8 +27,6 @@ function GenerateLink() {
     }
     setLoading(true);
 
-    // await fetch('/api/hello').then(res => console.log(res));
-
     axios.post(`https://api.nano-frames.com/pixl-page-service/pages`, JSON.stringify(body), {
       headers: {
         'Content-Type': 'application/json',

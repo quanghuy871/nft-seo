@@ -12,8 +12,12 @@ function Asset(props) {
   useEffect(() => {
     setName(props.asset.displayName);
     if (props.asset.media.files && props.asset.media.files.length > 0) {
+      if (props.asset.media.files[0].mediaType) {
+        setMediaType(props.asset.media.files[0].mediaType.type);
+      } else {
+        setMediaType('image');
+      }
       setFile(props.asset.media.files[0].url);
-      setMediaType(props.asset.media.files[0].mediaType.type);
     } else {
       setFile(props.asset.media.poster.url);
       setMediaType('image');
@@ -32,7 +36,7 @@ function Asset(props) {
           <Image
             template={<Button tooltip="Fullscreen view" type="Fullscreen"/>}
             imageClassName="img-fluid main__img"
-            src={props.asset.media.poster.url}
+            src={file}
             alt="Image"
             preview
           /> :
@@ -40,7 +44,7 @@ function Asset(props) {
             <div style={{height: '100%', width: '100%', textAlign: 'center'}}>
               <Button tooltip="Fullscreen view" onClick={fullscreenHandle} type="Fullscreen"/>
               <video
-                poster={props.asset.media.poster.url}
+                poster={file}
                 src={file}
                 controls
                 autoPlay={true}
@@ -56,7 +60,7 @@ function Asset(props) {
                 <Image
                   template={<Button tooltip="Fullscreen view" type="Fullscreen"/>}
                   imageClassName="img-fluid main__img"
-                  src={props.asset.media.poster.url}
+                  src={file}
                   alt="Image"
                   preview
                 />
@@ -71,8 +75,8 @@ function Asset(props) {
                 <div style={{height: '100%', width: '100%'}}>
                   <Button tooltip="Fullscreen view" onClick={fullscreenHandle} type="Fullscreen"/>
                   <iframe
-                    key={props.asset.id}
-                    id={props.asset.id}
+                    key={props.asset.id ? props.asset.id : ''}
+                    id={props.asset.id ? props.asset.id : ''}
                     title={name}
                     srcDoc={Buffer.from(file.toString().replace('data:text/html;base64,', ''), 'base64')}
                     marginWidth={0}
@@ -84,8 +88,8 @@ function Asset(props) {
                 <div style={{height: '100%', width: '100%'}}>
                   <Button tooltip="Fullscreen view" onClick={fullscreenHandle} type="Fullscreen"/>
                   <iframe
-                    key={props.asset.id}
-                    id={props.asset.id}
+                    key={props.asset.id ? props.asset.id : ''}
+                    id={props.asset.id ? props.asset.id : ''}
                     title={name}
                     src={file}
                     marginWidth={0}

@@ -171,7 +171,6 @@ a {
 }
 
 iframe {
-  height: 100% !important;
   width: 100% !important;
 }
 
@@ -322,10 +321,9 @@ input[type="email"] {
     top: 50% !important;
     width: auto !important;
     height: auto !important;
-    min-width: 650px;
-    min-height: 650px;
+    min-width: 600px;
+    min-height: 400px;
     transform: translate(-50%, -50%);
-
 
     &:hover {
       .fullscreen__btn {
@@ -364,6 +362,10 @@ input[type="email"] {
 
       .p-sidebar-content {
         padding: 0 50px 50px 50px;
+      }
+
+      iframe {
+        height: 100% !important;
       }
     }
   }
@@ -453,6 +455,10 @@ input[type="email"] {
       .main__img {
         height: auto !important;
       }
+
+      video {
+        max-height: 600px;
+      }
     }
   }
 }
@@ -467,6 +473,11 @@ input[type="email"] {
 
       .main__img {
         height: 100% !important;
+        max-height: 600px;
+      }
+
+      video {
+        max-height: 600px;
       }
     }
   }

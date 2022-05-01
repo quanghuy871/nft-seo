@@ -29,8 +29,8 @@ const currentCollectionSlice = createSlice({
     setAsset: (state, action) => {
       const index = state.currentCollectionAssets.findIndex(el => el.id === action.payload);
       state.currentAsset = state.currentCollectionAssets[index];
-      console.log(current(state));
       state.index = index;
+      console.log(current(state));
     },
 
     nextAsset: (state, action) => {

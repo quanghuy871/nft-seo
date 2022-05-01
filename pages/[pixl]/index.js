@@ -9,7 +9,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import {getCollectionState} from '../../store/selector';
 import {useRouter} from 'next/router';
 
-function PixlPage() {
+function PixlPage({data}) {
   const [value, setValue] = useState('');
   const [loading, setLoading] = useState(true);
   const [syncStatus, setSyncStatus] = useState(true);
@@ -23,15 +23,6 @@ function PixlPage() {
 
   const fetchAssets = useCallback(async (page = 0) => {
     try {
-      const response = await fetch(`https://testapi.nano-frames.com/pixl-page-service/pages/${router.query.pixl}/assets`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      const data = await response.json();
-
       if (data && data.items.length > 0) {
         let items = data.items;
         setSyncStatus(false);
@@ -51,12 +42,8 @@ function PixlPage() {
   });
 
   useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false;
-      return;
-    }
     fetchAssets();
-  }, [router.query]);
+  }, [router.query.pixl]);
 
   return (
     <div className="content-page pixl">
@@ -83,6 +70,22 @@ function PixlPage() {
       </div>
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  // Fetch data from external API
+
+  const response = await fetch(`https://api.nano-frames.com/pixl-page-service/pages/${context.params}/assets`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const data = await response.json();
+  return {props: {data}};
+
+  // Pass data to the page via props
 }
 
 export default PixlPage;

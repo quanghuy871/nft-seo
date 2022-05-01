@@ -95,6 +95,7 @@ function ContentAssetItem(props) {
       dispatch(setPixlAsset(props.assets.id));
     } else {
       dispatch(setAsset(props.assets.id));
+      console.log(props.assets);
     }
 
     setVisibleLightbox((prev) => !prev);
