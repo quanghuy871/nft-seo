@@ -623,8 +623,10 @@ input[type="email"] {
     }
 
     .collector-mode__only {
-      visibility: visible;
-      opacity: 1;
+      &.select {
+        visibility: visible;
+        opacity: 1;
+      }
     }
 
     .el-asset-item__img {

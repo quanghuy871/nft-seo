@@ -20,7 +20,7 @@ export const getCollectionState = createSelector(
   (collectionsState, collection) => {
     let position = collectionsState.findIndex((collectionState) => collectionState.collection.id === collection.id);
     if (position !== -1) return collectionsState[position];
-    return {collection: collection, all: false};
+    return {collection: collection};
   },
 );
 

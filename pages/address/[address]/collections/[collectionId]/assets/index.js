@@ -5,7 +5,7 @@ import {InputText} from 'primereact/inputtext';
 import ContentLoading from '../../../../../../components/ContentLoading/ContentLoading';
 import ContentCardList from '../../../../../../components/ContentCardList/ContentCardList';
 import {setCurrentCollectionAssets} from '../../../../../../store/currentCollection';
-import {addAsset, removeAsset, updateCollectionState} from '../../../../../../store/manager';
+import {addAsset, countAsset, removeAsset, updateCollectionState} from '../../../../../../store/manager';
 import {getCollectionState} from '../../../../../../store/selector';
 import InfiniteScroll from 'react-infinite-scroller';
 
@@ -22,6 +22,7 @@ function Assets() {
   const dispatch = useDispatch();
   const currentCollection = useSelector(state => state.currentCollection.currentCollection.name);
   const collectionState = useSelector((state) => getCollectionState(state));
+  const allAssets = useSelector(state => state.manager.assets);
   let assetNameFromStorage;
 
   const removeAssets = (assets) => {
@@ -40,10 +41,10 @@ function Assets() {
   };
 
   useEffect(() => {
-    if (!collectionState.all) {
-      setSelectAll(false);
+    if (allAssets.filter(el => el.collectionId === collectionState.collection.id).length === collectionState.assetCount) {
+      setSelectAll(true);
     }
-  }, [collectionState.all]);
+  }, [allAssets]);
 
   const fetchAssets = useCallback(async (page = 0) => {
     try {
@@ -86,13 +87,16 @@ function Assets() {
 
   const selectAllHandle = (e) => {
     e.preventDefault();
-    setSelectAll((prev) => !prev);
+    selectAssets(assets);
+    dispatch(countAsset({method: 'add', collection: collectionState.collection}));
+    setSelectAll(true);
+  };
 
-    if (!selectAll) {
-      selectAssets(assets);
-    } else {
-      removeAssets(assets);
-    }
+  const unSelectAllHandle = (e) => {
+    e.preventDefault();
+    dispatch(countAsset({method: 'remove-only-selection', collection: collectionState.collection}));
+    removeAssets(assets);
+    setSelectAll(false);
   };
 
   return (
@@ -113,7 +117,12 @@ function Assets() {
             </span>
             }
             <a onClick={() => router.back()} className="btn btn-border-black btn--back" href="#">back</a>
-            <a onClick={selectAllHandle} className="btn btn-border-black btn--select-all" href="#">{selectAll ? 'Unselect' : 'Select'} All</a>
+
+            {
+              selectAll ?
+                <a onClick={unSelectAllHandle} className="btn btn-border-black btn--select-all" href="#">Unselect All</a> :
+                <a onClick={selectAllHandle} className="btn btn-border-black btn--select-all" href="#">Select All</a>
+            }
           </div>
         </div>
 

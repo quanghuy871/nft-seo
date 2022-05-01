@@ -41,7 +41,7 @@ function Preview() {
       <Sidebar visible={visible} position="right" onHide={() => setVisible(false)}>
         <ScrollPanel style={{width: '100%', height: '100%'}}>
           <h3>Your selection</h3>
-          <h5>Assets: {assetCount}</h5>
+          <h5>Total assets: {assetCount}</h5>
           <DataView value={collectionsState} layout="list" itemTemplate={itemTemplate} paginator={false}/>
         </ScrollPanel>
       </Sidebar>

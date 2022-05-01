@@ -27,13 +27,13 @@ function ContentCardItem(props) {
 
   const selectHandle = () => {
     if (!checked) {
+      onFetchAssets(router.query.address, props.collection.id, dispatch);
       dispatch(addCollectionState(props.collection));
       dispatch(countAsset({method: 'add', collection: props.collection}));
-      onFetchAssets(router.query.address, props.collection.id, dispatch);
     } else {
+      dispatch(countAsset({method: 'remove-only-selection', collection: props.collection}));
       dispatch(removeAssetsOfCollection(props.collection));
       dispatch(removeCollectionState(props.collection));
-      dispatch(countAsset({method: 'remove', collection: props.collection}));
     }
   };
 

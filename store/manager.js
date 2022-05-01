@@ -5,6 +5,7 @@ const initialState = {
   collectionsState: [],
   assets: [],
   currentCollection: {},
+  test: [],
 };
 
 export const managerSlice = createSlice({
@@ -14,8 +15,6 @@ export const managerSlice = createSlice({
     addCollectionState: (state, action) => {
       // state.collectionsState.push({collection: action.payload, all: true});
       state.collectionsState.push({collection: action.payload, assetCount: action.payload.assetCount});
-
-      console.log(current(state));
     },
 
     updateAssets: (state, action) => {
@@ -101,9 +100,9 @@ export const managerSlice = createSlice({
 
       } else if (action.payload.method === 'remove-only-selection') {
         const collection = state.collectionsState.find(el => el.collection.id === action.payload.collection.id);
-
         const count = state.assets.filter(el => el.collectionId === action.payload.collection.id);
         state.assetCount -= count.length;
+        state.test = count;
 
       } else {
         state.assetCount -= action.payload.collection.assetCount;
