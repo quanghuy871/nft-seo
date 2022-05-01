@@ -89,7 +89,7 @@
         filter: var(--filter-img);
 
         @include media-breakpoint-up(xxl) {
-          height: 70px;
+          height: 70px !important;
         }
       }
 
