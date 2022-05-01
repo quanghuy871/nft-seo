@@ -170,13 +170,13 @@ function ContentAssetItem(props) {
         <div className="el-asset-item__data position-relative">
           <h6>{props.assets.displayName ? props.assets.displayName : props.assets.name}</h6>
           {
-            imagesLoaded && <Buttons tooltip="Metadata" type="Metadata" onClick={showMetaHandle}/>
+            imagesLoaded && <Buttons className="collector-mode__only metadata" tooltip="Metadata" type="Metadata" onClick={showMetaHandle}/>
           }
 
           {
             flip ?
-              <Buttons tooltip="Expand metadata" type="Metadata Sidebar" onClick={metadataSidebarHandle}/> :
-              currentPage && <Buttons checked={checked} tooltip={checked ? 'Unselect asset' : 'Select asset'} type="Select" onClick={selectHandle}/>
+              <Buttons className="collector-mode__only expand__metadata" tooltip="Expand metadata" type="Metadata Sidebar" onClick={metadataSidebarHandle}/> :
+              currentPage && <Buttons className="collector-mode__only select" checked={checked} tooltip={checked ? 'Unselect asset' : 'Select asset'} type="Select" onClick={selectHandle}/>
           }
         </div>
 

@@ -103,9 +103,16 @@
   }
 
   &:hover {
-    .select__btn, .showmeta__btn, .fullscreen__btn, .arrow__btn {
+    transform: scale(1.03);
+
+    .collector-mode__only, .fullscreen__btn {
       visibility: visible;
       opacity: 1;
+    }
+
+    .gallery-mode__only {
+      visibility: hidden;
+      opacity: 0;
     }
   }
 }

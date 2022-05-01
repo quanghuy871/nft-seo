@@ -14,7 +14,7 @@ function Buttons(props) {
       {
         type === 'Select' &&
         <Button tooltip={props.tooltip} data-pr-tooltip={props.tooltip} onClick={props.onClick} className={`controls__btn select__btn position-absolute ${props.className}`}>
-          <img className="img-fluid" src={props.checked ? minus.src : plus.src} alt={props.name}/>
+          <img className="img-fluid" src={props.checked ? minus.src : plus.src} alt="select"/>
         </Button>
       }
       {

@@ -594,7 +594,8 @@ input[type="email"] {
       color: $c-white-1;
     }
 
-    .select__btn {
+    .collector-mode__only {
+      z-index: 1;
       visibility: visible;
       opacity: 1;
     }
@@ -621,7 +622,7 @@ input[type="email"] {
       color: $c-white-1;
     }
 
-    .select__btn {
+    .collector-mode__only {
       visibility: visible;
       opacity: 1;
     }
