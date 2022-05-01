@@ -275,6 +275,14 @@
     }
   }
 
+  .el-card-item__img {
+    .select__btn {
+      img {
+        border: 1px solid $smoke-black;
+      }
+    }
+  }
+
   .el-asset-item__img-meta {
     border: 1px solid var(--text-color-1);
 
