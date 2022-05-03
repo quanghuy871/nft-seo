@@ -1,10 +1,10 @@
 import React from 'react';
 import arrow from '../../assets/images/arrow-up.svg';
 import fullscreenIcon from '../../assets/images/fullscreen-icon.svg';
-import {Button} from 'primereact/button';
 import plus from '../../assets/images/plus.svg';
 import minus from '../../assets/images/minus.svg';
 import metadataBtn from '../../assets/images/metadata.svg';
+import {Button} from 'primereact/button';
 
 function Buttons(props) {
   const type = props.type;

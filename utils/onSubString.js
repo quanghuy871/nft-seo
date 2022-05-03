@@ -1,4 +1,6 @@
-export function subString(str) {
+/* Substring function */
+
+function onSubString(str) {
   str = String(str);
 
   if (str.length > 15 && str.split(' ').length === 1) {
@@ -11,3 +13,5 @@ export function subString(str) {
 
   return str.substr(0, 19) + '...';
 }
+
+export default onSubString;

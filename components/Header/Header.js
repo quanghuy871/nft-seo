@@ -17,6 +17,7 @@ function Header(props) {
   const router = useRouter();
   const dispatch = useDispatch();
 
+  // Set theme color mode to localstorage
   useEffect(() => {
     if (localStorage.getItem('theme') === 'dark') {
       dispatch(changeThemeMode('dark'));
@@ -37,6 +38,7 @@ function Header(props) {
     }
   }, [router]);
 
+  // Change theme color mode handle
   const changeModeHandle = () => {
     if (document.body.classList.contains('white-content')) {
       dispatch(changeThemeMode('light'));
@@ -57,6 +59,7 @@ function Header(props) {
     }
   };
 
+  // Change view handle
   const viewHandle = () => {
     if (document.body.classList.contains('gallery-mode')) {
       dispatch(changeView('collector'));

@@ -1,6 +1,8 @@
+/* Check for OS function */
+
 import React from 'react';
 
-export function onPlatform() {
+function onPlatform() {
   let platform = 'na';
 
   const navigatorPlatform = window.navigator.platform.toLowerCase();
@@ -15,3 +17,5 @@ export function onPlatform() {
 
   return platform;
 }
+
+export default onPlatform;

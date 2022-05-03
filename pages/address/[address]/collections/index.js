@@ -1,3 +1,7 @@
+/*
+Collections Page
+*/
+
 import React, {useCallback, useEffect, useState} from 'react';
 import ContentLoading from '../../../../components/ContentLoading/ContentLoading';
 import ContentCardList from '../../../../components/ContentCardList/ContentCardList';

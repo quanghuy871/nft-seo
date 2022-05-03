@@ -6,8 +6,8 @@ import Button from '../Buttons/Buttons';
 import {setCurrentCollectionName} from '../../store/currentCollection';
 import {addCollectionState, setCurrentCollection, removeAssetsOfCollection, removeCollectionState, countAsset} from '../../store/manager';
 import {isCollectionsSelectedState} from '../../store/selector';
-import {useOnLoadImages} from '../../utils/onLoadImages';
-import {onUnitCheck} from '../../utils/onUnitCheck';
+import useOnLoadImages from '../../utils/onLoadImages';
+import onUnitCheck from '../../utils/onUnitCheck';
 import onCheckBase64 from '../../utils/onCheckBase64';
 import onFetchAssets from '../../utils/onFetchAssets';
 
@@ -19,14 +19,17 @@ function ContentCardItem(props) {
   const collectionId = props.collection.id;
   const checked = useSelector((state) => isCollectionsSelectedState(state, props.collection));
 
+  // Move to asset page of that collection handle
   const clickHandle = () => {
     dispatch(setCurrentCollection(props.collection));
     dispatch(setCurrentCollectionName(props.collection));
     router.push(`/address/${router.query.address}/collections/${collectionId}/assets`);
   };
 
+  // Select collection handle
   const selectHandle = () => {
     if (!checked) {
+      // Fetch Assets of Collection when select collection
       onFetchAssets(router.query.address, props.collection.id, dispatch);
       dispatch(addCollectionState(props.collection));
       dispatch(countAsset({method: 'add', collection: props.collection}));
@@ -68,6 +71,7 @@ function ContentCardItem(props) {
       <div className="el-card-item__data text-center position-relative">
         <div className="assets__count">
           <Tooltip target=".count"/>
+
           <span className="count" data-pr-tooltip="Number of asset">
             {props.collection.assetCount ? onUnitCheck(props.collection.assetCount) : ''}
           </span>
@@ -75,7 +79,11 @@ function ContentCardItem(props) {
 
         <h6>{props.collection.name}</h6>
 
-        <Button className="collector-mode__only select" checked={checked} tooltip={checked ? 'Unselect collection' : 'Select collection'} onClick={selectHandle} type="Select" name={props.collection.name}/>
+        <Button className="collector-mode__only select"
+                checked={checked} tooltip={checked ? 'Unselect collection' : 'Select collection'}
+                onClick={selectHandle}
+                type="Select"
+                name={props.collection.name}/>
       </div>
     </div>
   );

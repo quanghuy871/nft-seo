@@ -1,3 +1,5 @@
+/* Check URls function */
+
 function onUrl(string) {
   let url;
 

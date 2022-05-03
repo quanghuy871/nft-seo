@@ -3,9 +3,10 @@ import React, {useState, useEffect, Fragment} from 'react';
 function PageCounter() {
   const [counter, setCounter] = useState(0);
 
+  // Get page counter
   const handleRequest = async () => {
     try {
-      const response = await fetch('https://testapi.nano-frames.com/pixl-page-service/pages/count', {
+      const response = await fetch('https://api.nano-frames.com/pixl-page-service/pages/count', {
         method: 'GET',
       });
 

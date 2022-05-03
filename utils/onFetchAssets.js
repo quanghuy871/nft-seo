@@ -1,3 +1,5 @@
+/* Fetch assets of collection function */
+
 import React from 'react';
 import {updateAssets} from '../store/manager';
 

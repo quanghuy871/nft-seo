@@ -23,8 +23,12 @@ function Preview() {
 
     return (
       <div className="grid preview-detail-collection">
-        <img alt={collection.name} src={onCheckBase64(collection.poster.url)} style={{maxWidth: '40px', objectFit: 'contain', maxHeight: '50px'}}/>
+        <img alt={collection.name}
+             src={onCheckBase64(collection.poster.url)}
+             style={{maxWidth: '40px', objectFit: 'contain', maxHeight: '50px'}}
+        />
         <div className="col-9 text-sm font-bold main__collections">{collection.name}</div>
+
         <button onClick={() => {
           dispatch(countAsset({method: 'remove-only-selection', collection: collection}));
           dispatch(removeCollectionState(collection));
@@ -37,11 +41,17 @@ function Preview() {
 
   return (
     <Fragment>
-      <Button label="Preview selection" className="btn btn-border-black btn--preview" onClick={() => setVisible(true)}/>
+      <Button label="Preview selection"
+              className="btn btn-border-black btn--preview"
+              onClick={() => setVisible(true)}
+      />
+
       <Sidebar visible={visible} position="right" onHide={() => setVisible(false)}>
         <ScrollPanel style={{width: '100%', height: '100%'}}>
           <h3>Your selection</h3>
+
           <h5>Total assets: {assetCount}</h5>
+
           <DataView value={collectionsState} layout="list" itemTemplate={itemTemplate} paginator={false}/>
         </ScrollPanel>
       </Sidebar>

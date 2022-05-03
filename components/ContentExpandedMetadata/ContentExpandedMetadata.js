@@ -30,6 +30,7 @@ function ContentExpandedMetadata(props) {
           </div> :
           <Fragment>
             <ContentMetaData metaData={props.asset.onChainMetadata}/>
+
             <ContentAdditionalInfo asset={props.asset}/>
           </Fragment>
       }

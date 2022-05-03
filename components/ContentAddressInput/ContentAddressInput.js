@@ -1,15 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import {InputText} from 'primereact/inputtext';
 import {Dialog} from 'primereact/dialog';
-import PageCounter from '../ContentPageCounter/ContentPageCounter';
 import signal from '../../assets/images/signal.png';
 import {useRouter} from 'next/router';
+import PageCounter from '../ContentPageCounter/ContentPageCounter';
 
 function ContentAddressInput() {
   const [value, setValue] = useState('');
   const [visible, setVisible] = useState(false);
   const router = useRouter();
 
+  // Check if address is exist
   const handlerSearch = async (e, page = 0) => {
     e.preventDefault();
     await fetch(`https://api.nano-frames.com/asset-service/wallets/${value}/collections?page=${page}&pageSize=5`).then((res) => {
@@ -21,6 +22,7 @@ function ContentAddressInput() {
     }).catch(() => setVisible(true));
   };
 
+  // Close the warning after address
   useEffect(() => {
     setTimeout(() => {
       setVisible(false);
@@ -30,18 +32,31 @@ function ContentAddressInput() {
   return (
     <div className="el-address-input text-center">
       <div className="container">
-        <h3><PageCounter/></h3>
+        <h3>
+          <PageCounter/>
+        </h3>
 
         <form onSubmit={handlerSearch} className="el-address-input__wrapper mx-auto">
           <span className="p-input-icon-left">
             <i className="pi pi-search"/>
-            <InputText value={value} onChange={(e) => setValue(e.target.value)} placeholder="Enter ADA address or ADAHandle"/>
+
+            <InputText
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              placeholder="Enter ADA address or ADAHandle"
+            />
           </span>
         </form>
 
-        <Dialog onHide={() => setVisible(false)} visible={visible} position={'top-right'} modal
-                draggable={false} resizable={false}>
+        <Dialog onHide={() => setVisible(false)}
+                visible={visible}
+                position={'top-right'}
+                modal
+                draggable={false}
+                resizable={false}>
+
           <img className="img-fluid" src={signal} alt="Not Found"/>
+
           <p>ADDRESS NOT FOUND</p>
         </Dialog>
       </div>

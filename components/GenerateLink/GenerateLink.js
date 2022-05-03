@@ -57,8 +57,13 @@ function GenerateLink() {
               label={`${loading ? 'CREATING...' : 'CREATE PAGE'}`}
               className={`btn btn-border-black btn--create ${collectionsState.length > 0 ? '' : 'btn-disabled'}`}
               onClick={handleClick}/>
-      <Sidebar visible={visible} position="bottom" onHide={() => setVisible(false)}>
+
+      <Sidebar visible={visible}
+               position="bottom"
+               onHide={() => setVisible(false)}>
+
         <span className="link__title">Your page has been created!</span>
+
         <div className="link__main" onClick={copy}>
           <i style={{marginRight: '10px'}} className={`pi ${icon}`}/>{page}
         </div>

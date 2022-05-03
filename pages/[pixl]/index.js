@@ -1,3 +1,7 @@
+/*
+Created page
+*/
+
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import ContentLoading from '../../components/ContentLoading/ContentLoading';
 import ContentCardList from '../../components/ContentCardList/ContentCardList';
@@ -23,14 +27,14 @@ function PixlPage({data}) {
 
   const fetchAssets = useCallback(async (page = 0) => {
     try {
-      const response = await fetch(`https://api.nano-frames.com/pixl-page-service/pages/${router.query.pixl}/assets`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      // const response = await fetch(`https://api.nano-frames.com/pixl-page-service/pages/${router.query.pixl}/assets`, {
+      //   method: 'GET',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      // });
 
-      const data = await response.json();
+      // const data = await response.json();
 
       if (data && data.items.length > 0) {
         let items = data.items;
@@ -89,22 +93,22 @@ function PixlPage({data}) {
   );
 }
 
-// export async function getServerSideProps(context) {
-//   // Fetch data from external API
-//
-//   console.log(context);
-//
-//   const response = await fetch(`https://api.nano-frames.com/pixl-page-service/pages/${context.params.pixl}/assets`, {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   });
-//
-//   const data = await JSON.parse(response.json());
-//   return {props: {data}};
-//
-//   // Pass data to the page via props
-// }
+export async function getServerSideProps(context) {
+  // Fetch data from external API
+
+  const response = await fetch(`https://api.nano-frames.com/pixl-page-service/pages/${context.params.pixl}/assets`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  console.log(response);
+
+  const data = await response.json();
+  return {props: {data}};
+
+  // Pass data to the page via props
+}
 
 export default PixlPage;

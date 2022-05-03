@@ -1,3 +1,6 @@
+////////////////////////////
+//Fonts Loader
+
 @font-face {
   font-family: 'Cartograph CF';
   src: url('#{$fonts}/CartographCF-Thin.ttf') format('truetype');
@@ -39,6 +42,9 @@
   src: url('#{$fonts}/CartographCF-ExtraBold.ttf') format('opentype');
   font-weight: 900;
 }
+
+////////////////////////////
+//General Styles
 
 :root {
   --f-sans-serif: #{$font-sans-serif};
@@ -255,6 +261,14 @@ input[type="email"] {
   }
 }
 
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+////////////////////////////
+//Styles ofr modified sidebars
+
 .p-sidebar-left, .p-sidebar-right, .p-sidebar-bottom {
   h3 {
     margin-left: 15px;
@@ -439,6 +453,9 @@ input[type="email"] {
   }
 }
 
+////////////////////////////
+//Styles for modified assets and lightbox
+
 .asset__rectangle {
   .p-sidebar-full {
     .p-sidebar {
@@ -586,6 +603,9 @@ input[type="email"] {
   }
 }
 
+////////////////////////////
+//Styles for modified selected collection item
+
 .el-card-item {
   &.selected {
     background-color: var(--item-selected);
@@ -613,6 +633,9 @@ input[type="email"] {
     }
   }
 }
+
+////////////////////////////
+//Styles for modified selected asset item
 
 .selected {
   .el-asset-item {
@@ -643,11 +666,6 @@ input[type="email"] {
   .el-asset-item__img-meta::-webkit-scrollbar-thumb {
     background: #fff;
   }
-}
-
-.img-fluid {
-  max-width: 100%;
-  height: auto;
 }
 
 .p-dialog {
@@ -682,6 +700,9 @@ input[type="email"] {
     font-weight: 900;
   }
 }
+
+////////////////////////////
+//Styles for modified slider track
 
 .el-asset-item__img-meta::-webkit-scrollbar {
   width: 6px;

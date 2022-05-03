@@ -1,8 +1,12 @@
+/*
+Homepage
+*/
+
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
-import seoLading from '../assets/images/pixl-page-landing.png';
+import pixlThumbnail from '../assets/images/pixl.page_Icon.png';
 import ContentAddressInput from '../components/ContentAddressInput/ContentAddressInput';
 import {resetState} from '../store/manager';
 import {useDispatch} from 'react-redux';
@@ -15,7 +19,10 @@ function Home() {
 
   return (
     <>
-      <SEO title="pixl.page" description="NFT frames for your collections" image={seoLading}/>
+      <SEO
+        title="pixl.page - Your NFT profile page"
+        description="Create personal pages with your NFTs"
+        image={pixlThumbnail}/>
       <div className="homepage">
         <ContentAddressInput/>
       </div>

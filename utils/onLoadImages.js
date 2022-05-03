@@ -1,7 +1,9 @@
+/* Check for image is loaded function */
+
 import React from 'react';
 import {useState, useEffect} from 'react';
 
-export const useOnLoadImages = (ref) => {
+const useOnLoadImages = (ref) => {
   const [status, setStatus] = useState(false);
 
   useEffect(() => {
@@ -34,3 +36,5 @@ export const useOnLoadImages = (ref) => {
 
   return status;
 };
+
+export default useOnLoadImages;

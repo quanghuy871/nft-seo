@@ -1,21 +1,21 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {useOnLoadImages} from '../../utils/onLoadImages';
-import {subString} from '../../utils/subString';
+import useOnLoadImages from '../../utils/onLoadImages';
+import onSubString from '../../utils/onSubString';
+import onCheckBase64 from '../../utils/onCheckBase64';
 import {Sidebar} from 'primereact/sidebar';
-import {useDispatch, useSelector} from 'react-redux';
-import {setAsset, nextAsset, prevAsset} from '../../store/currentCollection';
-import {setPixlAsset, nextPixlAsset, prevPixlAsset} from '../../store/pixlManager';
+import {Image} from 'primereact/image';
+import Buttons from '../Buttons/Buttons';
 import ContentMetaData from '../ContentMetaData/ContentMetaData';
 import ContentAdditionalInfo from '../ContentAdditionalInfo/ContentAdditionalInfo';
 import ContentExpandedMetadata from '../ContentExpandedMetadata/ContentExpandedMetadata';
-import Buttons from '../Buttons/Buttons';
 import Asset from '../Asset/Asset';
+import {setAsset, nextAsset, prevAsset} from '../../store/currentCollection';
+import {setPixlAsset, nextPixlAsset, prevPixlAsset} from '../../store/pixlManager';
+import {countAsset, removeAsset, addAsset, addCollectionState, removeAssetsOfCollection, removeCollectionState, updateCollectionState} from '../../store/manager';
+import {useDispatch, useSelector} from 'react-redux';
+import {useRouter} from 'next/router';
 import arrowRight from './../../assets/images/arrow-right.svg';
 import arrowLeft from './../../assets/images/arrow-left.svg';
-import {Image} from 'primereact/image';
-import {countAsset, removeAsset, addAsset, addCollectionState, removeAssetsOfCollection, removeCollectionState, updateCollectionState} from '../../store/manager';
-import onCheckBase64 from '../../utils/onCheckBase64';
-import {useRouter} from 'next/router';
 
 function ContentAssetItem(props) {
   const [flip, setFlip] = useState(false);
@@ -44,35 +44,43 @@ function ContentAssetItem(props) {
   useEffect(() => {
     const wrapperEl = document.querySelector('.assets-grid__wrapper');
 
+    // Prevent component from first render
     if (firstRender.current) {
       firstRender.current = false;
       return;
     }
 
+    // Flip the image to metadata
     if (flip) {
       setFlip(false);
     }
 
+    // Added class based on image size - square, rectangle, portrait
+    // For Squared
     if (imgRef.current.naturalHeight === imgRef.current.naturalWidth || imgRef.current.naturalWidth < imgRef.current.naturalHeight + 50) {
       itemWrapper.current.classList.add('asset__squared');
       wrapperEl.classList.add('grid__fit-squared');
     }
 
+    // For Portrait
     if (imgRef.current.naturalHeight > imgRef.current.naturalWidth) {
       itemWrapper.current.classList.add('asset__portrait');
       wrapperEl.classList.add('grid__fit-squared');
     }
 
+    // For Rectangle
     if (imgRef.current.naturalHeight + 100 < imgRef.current.naturalWidth) {
       itemWrapper.current.classList.add('asset__rectangle');
       wrapperEl.classList.add('grid__fit-rectangle');
     }
 
+    // For wrapper
     if (wrapperEl.classList.contains('grid__fit-rectangle') && wrapperEl.classList.contains('grid__fit-squared')) {
       wrapperEl.classList.add('grid__modified');
     }
   }, [imagesLoaded, props.selectAll, viewMode]);
 
+  // Select asset handle
   const selectHandle = () => {
     if (!checked) {
       dispatch(addAsset(props.assets));
@@ -84,48 +92,34 @@ function ContentAssetItem(props) {
     dispatch(updateCollectionState(false));
   };
 
+  // Flip the image to metadata handle
   const showMetaHandle = () => {
     setFlip((prev) => !prev);
   };
 
+  // Open expanded metadata sidebar handle
   const metadataSidebarHandle = () => {
     setVisibleRight((prev) => !prev);
   };
 
+  // Open lightbox handle
   const lightboxHandle = () => {
     if (!currentPage) {
       dispatch(setPixlAsset(props.assets.id));
     } else {
       dispatch(setAsset(props.assets.id));
-      console.log(props.assets);
     }
 
     setVisibleLightbox((prev) => !prev);
     setVisibleFullscreen(false);
-
-    if (imgRef.current.naturalHeight === imgRef.current.naturalWidth) {
-      document.querySelector('body').classList.add('asset__square');
-    } else {
-      document.querySelector('body').classList.remove('asset__square');
-    }
-
-    if (imgRef.current.naturalHeight > imgRef.current.naturalWidth) {
-      document.querySelector('body').classList.add('asset__portrait');
-    } else {
-      document.querySelector('body').classList.remove('asset__portrait');
-    }
-
-    if (imgRef.current.naturalHeight < imgRef.current.naturalWidth) {
-      document.querySelector('body').classList.add('asset__rectangle');
-    } else {
-      document.querySelector('body').classList.remove('asset__rectangle');
-    }
   };
 
+  // Open fullscreen mode handle
   const fullscreenHandle = () => {
     setVisibleFullscreen((prev) => !prev);
   };
 
+  // Next and Prev image on lightbox view handle
   const imageSideHandle = (direction) => {
     if (direction === 'next') {
       dispatch(nextPixlAsset());
@@ -134,6 +128,7 @@ function ContentAssetItem(props) {
     }
   };
 
+  // Navigate to individual Asset page
   const navigateAssetHandle = () => {
     router.push(`/asset/${props.assets.id}`);
   };
