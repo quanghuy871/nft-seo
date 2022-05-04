@@ -10,6 +10,7 @@ import useOnLoadImages from '../../utils/onLoadImages';
 import onUnitCheck from '../../utils/onUnitCheck';
 import onCheckBase64 from '../../utils/onCheckBase64';
 import onFetchAssets from '../../utils/onFetchAssets';
+import onSubString from '../../utils/onSubString';
 
 function ContentCardItem(props) {
   const wrapper = useRef();
@@ -77,7 +78,7 @@ function ContentCardItem(props) {
           </span>
         </div>
 
-        <h6>{props.collection.name}</h6>
+        <h6>{onSubString(props.collection.name)}</h6>
 
         <Button className="collector-mode__only select"
                 checked={checked} tooltip={checked ? 'Unselect collection' : 'Select collection'}

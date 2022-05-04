@@ -110,7 +110,7 @@ function Header(props) {
               <Link href="https://www.nano-frames.com/">
                 <a rel="noreferrer" target="_blank" className="side__logo">
                   <p>powered by</p>
-                  <Image width="150" className="img-fluid logo" src={NanoLogo} alt="Nano"/>
+                  <Image width="150" className="img-fluid nano__logo" src={NanoLogo} alt="Nano"/>
                 </a>
               </Link>
             }

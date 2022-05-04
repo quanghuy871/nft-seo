@@ -205,8 +205,13 @@
 //////////////////////////
 // Styles for individual Asset page
 
+.individual__asset {
+  height: unset;
+}
+
 .asset__individual {
-  padding-bottom: 90px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 
   .fullscreen__btn {
     opacity: 0 !important;
@@ -227,7 +232,7 @@
     justify-content: center;
 
     &-item {
-      max-width: 550px;
+      max-width: 450px;
     }
 
     .el-asset-item__img {
@@ -244,6 +249,22 @@
         width: 100%;
       }
     }
+  }
+
+  .asset__individual-btn {
+    position: relative !important;
+    display: block;
+    opacity: 1 !important;
+    visibility: visible;
+    margin: 0 auto;
+  }
+
+  .p-image-preview-indicator {
+    display: none;
+  }
+
+  .fullscreen__btn {
+    display: none;
   }
 }
 

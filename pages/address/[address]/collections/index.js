@@ -111,6 +111,7 @@ function Collections(props) {
 
         <div className="collections-grid">
           {loading && <ContentLoading/>}
+
           <InfiniteScroll
             pageStart={0}
             loadMore={fetchNFTs}

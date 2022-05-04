@@ -5,9 +5,9 @@ Homepage
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '../styles/Home.module.css';
 import pixlThumbnail from '../assets/images/pixl.page_Icon.png';
 import ContentAddressInput from '../components/ContentAddressInput/ContentAddressInput';
+import ContentPDF from '../components/ContentPDF/ContentPDF';
 import {resetState} from '../store/manager';
 import {useDispatch} from 'react-redux';
 import SEO from '../components/SEO/SEO';
@@ -25,6 +25,7 @@ function Home() {
         image={pixlThumbnail}/>
       <div className="homepage">
         <ContentAddressInput/>
+        <ContentPDF/>
       </div>
     </>
   );

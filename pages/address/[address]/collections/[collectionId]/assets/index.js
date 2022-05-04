@@ -103,6 +103,8 @@ function Assets() {
     setSelectAll(false);
   };
 
+  console.log(assets);
+
   return (
     <div className="content-page assets">
       <div className="container">

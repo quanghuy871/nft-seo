@@ -31,20 +31,16 @@ function ContentAccordions() {
 
         <AccordionTab header="Why does it take longer to load the first time I look up a wallet?">
           <p>
-            It takes time to get all the info from the blockchain but after the first time, things will be a lot faster!a
+            It takes time to get all the info from the blockchain but after the first time, things will be a lot faster!
           </p>
         </AccordionTab>
 
         <AccordionTab header="Why do I need to connect my wallet?">
-          <p>You don&apos;t have to! You can create unlimited pages without logging in. Connecting your wallet allows you to edit the pages you created!</p>
+          <p>Yes, just connect your wallet and you can edit the pages you created!</p>
         </AccordionTab>
 
         <AccordionTab header="Can I edit my page once I created it?">
-          <p>You don&apos;t have to! You can create unlimited pages without logging in. Connecting your wallet allows you to edit the pages you created!</p>
-        </AccordionTab>
-
-        <AccordionTab header="Why do I need to connect my wallet?">
-          <p>Yes, just connect your wallet and you can edit the pages you created!</p>
+          <p>Soon!</p>
         </AccordionTab>
 
         <AccordionTab header="Can I get a custom link? E.g. pixl.page/yourname">
@@ -60,15 +56,15 @@ function ContentAccordions() {
         </AccordionTab>
 
         <AccordionTab header="Can someone see all the NFTs from my wallet?">
-          <p>Only if someone has your wallet address. If you generate a pixl.page with a selection of your NFTs, there is no way on pixl.page to see all your NFTs.</p>
+          <p>Once you created your pixl.page, there is no direct way for others to see the rest of your wallet</p>
         </AccordionTab>
 
         <AccordionTab header="(Mobile View) How can I select collections/assets?">
-          <p>Tab the collection/asset name to display the select button</p>
+          <p>In COLLECTOR mode, tab the collection/asset name to display the select button</p>
         </AccordionTab>
 
         <AccordionTab header="(Mobile View) Where is the Metadata?">
-          <p>Tab the collection/asset name to display the Metadata button</p>
+          <p>In COLLECTOR MODE, tab the collection/asset name to display the Metadata button</p>
         </AccordionTab>
       </Accordion>
     </div>

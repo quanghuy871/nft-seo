@@ -8,6 +8,7 @@ function Asset(props) {
   const [name, setName] = useState(null);
   const [file, setFile] = useState(null);
   const [mediaType, setMediaType] = useState(null);
+  const [button, setButton] = useState(false);
 
   useEffect(() => {
     setName(props.asset.displayName);

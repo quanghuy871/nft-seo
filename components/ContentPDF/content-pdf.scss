@@ -1,0 +1,22 @@
+@import "assets/scss/mixins";
+@import "assets/scss/variables";
+
+.content-pdf {
+  position: absolute;
+  right: 50%;
+  text-align: center;
+  transform: translate(50%, 160px);
+
+  @include media-breakpoint-up(md) {
+    bottom: 35%;
+    transform: translate(50%, 50%);
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}

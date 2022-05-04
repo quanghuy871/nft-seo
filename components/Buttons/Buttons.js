@@ -31,7 +31,7 @@ function Buttons(props) {
       }
       {
         type === 'Fullscreen' &&
-        <Button tooltip={props.tooltip} onClick={props.onClick} className="controls__btn fullscreen__btn position-absolute">
+        <Button tooltip={props.tooltip} onClick={props.onClick} className={`controls__btn fullscreen__btn position-absolute ${props.className}`}>
           <img className="img-fluid" src={fullscreenIcon.src} alt=""/>
         </Button>
       }

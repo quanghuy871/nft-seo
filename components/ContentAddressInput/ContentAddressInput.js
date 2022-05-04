@@ -55,7 +55,7 @@ function ContentAddressInput() {
                 draggable={false}
                 resizable={false}>
 
-          <img className="img-fluid" src={signal} alt="Not Found"/>
+          <img className="img-fluid" src={signal.src} alt="Not Found"/>
 
           <p>ADDRESS NOT FOUND</p>
         </Dialog>

@@ -112,6 +112,24 @@ function ContentAssetItem(props) {
 
     setVisibleLightbox((prev) => !prev);
     setVisibleFullscreen(false);
+
+    if (imgRef.current.naturalHeight === imgRef.current.naturalWidth) {
+      document.querySelector('body').classList.add('asset__square');
+    } else {
+      document.querySelector('body').classList.remove('asset__square');
+    }
+
+    if (imgRef.current.naturalHeight > imgRef.current.naturalWidth) {
+      document.querySelector('body').classList.add('asset__portrait');
+    } else {
+      document.querySelector('body').classList.remove('asset__portrait');
+    }
+
+    if (imgRef.current.naturalHeight < imgRef.current.naturalWidth) {
+      document.querySelector('body').classList.add('asset__rectangle');
+    } else {
+      document.querySelector('body').classList.remove('asset__rectangle');
+    }
   };
 
   // Open fullscreen mode handle
@@ -151,7 +169,7 @@ function ContentAssetItem(props) {
             imagesLoaded && <Buttons className="gallery-mode__only metadata" tooltip="Metadata" type="Metadata" onClick={showMetaHandle}/>
           }
 
-          <img onClick={lightboxHandle} ref={imgRef} className="img-fluid main__img" src={onCheckBase64(props.assets.media.poster.url)} alt={props.assets.displayName}/>
+          <img loading="lazy" onClick={lightboxHandle} ref={imgRef} className="img-fluid main__img" src={onCheckBase64(props.assets.media.poster.url)} alt={props.assets.displayName}/>
 
           <div className="el-asset-item__img-meta">
             {
@@ -170,7 +188,7 @@ function ContentAssetItem(props) {
 
         <div className="el-asset-item__data position-relative">
           <div onClick={navigateAssetHandle} style={{margin: '0 auto'}}>
-            <h6>{props.assets.displayName ? props.assets.displayName : props.assets.name}</h6>
+            <h6>{props.assets.displayName ? onSubString(props.assets.displayName) : onSubString(props.assets.name)}</h6>
           </div>
           {
             imagesLoaded && <Buttons className="collector-mode__only metadata" tooltip="Metadata" type="Metadata" onClick={showMetaHandle}/>
