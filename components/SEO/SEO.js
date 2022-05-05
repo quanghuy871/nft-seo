@@ -13,6 +13,13 @@ const SEO = (props) => {
       <meta property="og:name" content={title}/>
       <meta property="og:description" content={description}/>
       <meta property="og:image" content={image.src ? image.src : image}/>
+
+      <meta property="twitter:title" content={title}/>
+      <meta property="twitter:site_name" content="pixl.page"/>
+      <meta property="twitter:name" content={title}/>
+      <meta property="twitter:description" content={description}/>
+      <meta property="twitter:card" content="summary"/>
+      <meta property="twitter:image" content={image.src ? image.src : image}/>
     </Head>
   );
 };
