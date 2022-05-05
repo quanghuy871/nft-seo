@@ -13,6 +13,7 @@ function AssetId({data}) {
   const [visibleRight, setVisibleRight] = useState(false);
   const [visibleFullScreen, setVisibleFullScreen] = useState(false);
   const wrapper = useRef();
+  const imgRef = useRef();
   const imagesLoaded = useOnLoadImages(wrapper);
 
   const showMetaHandle = () => {
@@ -25,7 +26,24 @@ function AssetId({data}) {
 
   const fullscreenHandle = () => {
     setVisibleFullScreen(true);
-    console.log('WORK');
+
+    if (imgRef.current.naturalHeight === imgRef.current.naturalWidth) {
+      document.querySelector('body').classList.add('asset__square');
+    } else {
+      document.querySelector('body').classList.remove('asset__square');
+    }
+
+    if (imgRef.current.naturalHeight > imgRef.current.naturalWidth) {
+      document.querySelector('body').classList.add('asset__portrait');
+    } else {
+      document.querySelector('body').classList.remove('asset__portrait');
+    }
+
+    if (imgRef.current.naturalHeight < imgRef.current.naturalWidth) {
+      document.querySelector('body').classList.add('asset__rectangle');
+    } else {
+      document.querySelector('body').classList.remove('asset__rectangle');
+    }
   };
 
   useEffect(() => {
@@ -44,8 +62,17 @@ function AssetId({data}) {
                   !imagesLoaded && <i className="pi pi-spin pi-spinner"></i>
                 }
 
-                <div className='asset__inside-img__wrapper' onClick={fullscreenHandle}>
+                <div className="asset__inside-img__wrapper" onClick={fullscreenHandle}>
                   <Asset asset={data}/>
+
+                  <img ref={imgRef} style={{display: 'none'}} src={data.media.poster.url} alt={data.displayName}/>
+
+                  <div className="position-absolute" style={{
+                    height: '100%',
+                    width: '100%',
+                    top: '0',
+                    left: '0',
+                  }}></div>
                 </div>
 
                 <div className="el-asset-item__img-meta">
@@ -74,7 +101,7 @@ function AssetId({data}) {
                     onClick={showMetaHandle}/>
                 }
 
-                <h6 onClick={fullscreenHandle}>{data.displayName}</h6>
+                <h6>{data.displayName}</h6>
 
                 <Buttons className="collector-mode__only expand__metadata" tooltip="Expand metadata" type="Metadata Sidebar" onClick={metadataSidebarHandle}/>
 
