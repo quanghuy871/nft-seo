@@ -13,8 +13,6 @@ const SEO = (props) => {
       <meta property="og:name" content={title}/>
       <meta property="og:description" content={description}/>
       <meta property="og:image" content={image.src ? image.src : image}/>
-      <meta property="og:image:height" content="1200"/>
-      <meta property="og:image:width" content="627"/>
     </Head>
   );
 };

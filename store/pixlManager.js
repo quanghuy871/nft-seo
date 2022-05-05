@@ -18,7 +18,7 @@ const pixlSlice = createSlice({
     setPixlAsset: (state, action) => {
       const curState = current(state);
       const index = curState.assets.findIndex(el => el.id === action.payload);
-      state.currentAsset = current(state.assets[index]);
+      state.currentAsset = state.assets[index];
       state.index = index;
     },
 

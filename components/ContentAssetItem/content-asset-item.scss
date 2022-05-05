@@ -8,7 +8,8 @@
   height: auto;
   padding: 7px 7px 12px 7px;
   background-color: var(--card-bg-color);
-  box-shadow: rgba(14, 30, 37, 0.12) 0 2px 4px 0, rgba(14, 30, 37, 0.32) 0 2px 16px 0;
+  //box-shadow: rgba(14, 30, 37, 0.12) 0 2px 4px 0, rgba(14, 30, 37, 0.32) 0 2px 16px 0;
+  box-shadow: rgba(14, 30, 37, 0.32) 5px 5px 10px;
   min-width: 212px;
   max-width: 212px;
   @include st-transition;

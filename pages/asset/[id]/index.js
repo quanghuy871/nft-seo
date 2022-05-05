@@ -7,6 +7,7 @@ import ContentMetaData from '../../../components/ContentMetaData/ContentMetaData
 import ContentExpandedMetadata from '../../../components/ContentExpandedMetadata/ContentExpandedMetadata';
 import Button from '../../../components/Buttons/Buttons';
 import {Sidebar} from 'primereact/sidebar';
+import {useRouter} from 'next/router';
 
 function AssetId({data}) {
   const [flip, setFlip] = useState(false);
@@ -15,6 +16,7 @@ function AssetId({data}) {
   const wrapper = useRef();
   const imgRef = useRef();
   const imagesLoaded = useOnLoadImages(wrapper);
+  const router = useRouter();
 
   const showMetaHandle = () => {
     setFlip((prev) => !prev);
@@ -50,6 +52,8 @@ function AssetId({data}) {
     document.querySelector('.main-content').classList.add('individual__asset');
   }, []);
 
+  console.log(router);
+
   return (
     <>
       <SEO title={data.displayName} image={data.media.poster.url}/>
@@ -58,10 +62,6 @@ function AssetId({data}) {
           <div className={`asset__individual-wrapper ${flip ? 'flipped' : ''}`}>
             <div className="asset__individual-wrapper-item asset__inside el-asset-item">
               <div className="asset__inside-img el-asset-item__img" ref={wrapper}>
-                {
-                  !imagesLoaded && <i className="pi pi-spin pi-spinner"></i>
-                }
-
                 <div className="asset__inside-img__wrapper" onClick={fullscreenHandle}>
                   <Asset asset={data}/>
 
@@ -91,15 +91,12 @@ function AssetId({data}) {
               </div>
 
               <div className="el-asset-item__data position-relative">
-
-                {
-                  imagesLoaded &&
-                  <Buttons
-                    className="collector-mode__only metadata"
-                    tooltip="Metadata"
-                    type="Metadata"
-                    onClick={showMetaHandle}/>
-                }
+                <Buttons
+                  className="collector-mode__only metadata"
+                  tooltip="Metadata"
+                  type="Metadata"
+                  onClick={showMetaHandle}
+                />
 
                 <h6>{data.displayName}</h6>
 
