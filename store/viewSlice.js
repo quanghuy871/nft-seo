@@ -10,6 +10,7 @@ const viewSlice = createSlice({
   reducers: {
     changeView(state, action) {
       state.viewMode = action.payload;
+      localStorage.setItem('view', action.payload);
     },
   },
 });

@@ -135,6 +135,7 @@
     border-width: var(--border-width);
 
     img {
+      background-color: unset !important;
       padding: var(--border-padding);
       border-radius: 0;
       border: none;
