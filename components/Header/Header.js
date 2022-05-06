@@ -45,6 +45,7 @@ function Header(props) {
       document.querySelector('.gallery').classList.remove('disabled');
       document.querySelector('.collector').classList.add('disabled');
       setMode(false);
+
     } else {
       dispatch(changeView('gallery'));
 
