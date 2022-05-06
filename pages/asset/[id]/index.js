@@ -52,11 +52,9 @@ function AssetId({data}) {
     document.querySelector('.main-content').classList.add('individual__asset');
   }, []);
 
-  console.log(router);
-
   return (
     <>
-      <SEO title={data.displayName} image={data.media.poster.url}/>
+      <SEO type={data} title={data.displayName} image={data.media.poster.url}/>
       <div className="asset__individual">
         <div className="container">
           <div className={`asset__individual-wrapper ${flip ? 'flipped' : ''}`}>
