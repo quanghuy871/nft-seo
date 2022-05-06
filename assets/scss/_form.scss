@@ -130,10 +130,12 @@
     width: 20px;
     border-radius: 50%;
     background-color: $c-white-1;
-    border: 1px solid var(--btn-color);
+    border-style: solid;
+    border-color: var(--btn-color);
+    border-width: var(--border-width);
 
     img {
-      padding: 4px;
+      padding: var(--border-padding);
       border-radius: 0;
       border: none;
     }

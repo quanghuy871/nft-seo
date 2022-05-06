@@ -8,6 +8,7 @@ import ContentExpandedMetadata from '../../../components/ContentExpandedMetadata
 import Button from '../../../components/Buttons/Buttons';
 import {Sidebar} from 'primereact/sidebar';
 import {useRouter} from 'next/router';
+import {Buffer} from 'buffer';
 
 function AssetId({data}) {
   const [flip, setFlip] = useState(false);

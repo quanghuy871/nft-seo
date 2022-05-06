@@ -63,8 +63,12 @@
   --item-selected: #{$jet-black};
   --accordion-heading-color: #{$ice-white};
   --c-blue-1: blue;
+  --border-width: 1px;
+  --border-padding: 4px;
 
   .white-content {
+    --border-width: 0;
+    --border-padding: 5px;
     --filter-img: invert(99%) sepia(99%) saturate(0%) hue-rotate(289deg) brightness(113%) contrast(101%);
     --text-color-1: #{$c-white-1};
     --switch-border-color: #fff;
