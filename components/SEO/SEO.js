@@ -18,8 +18,8 @@ const SEO = (props) => {
         props.type && <meta property="og:image:type" content="image/jpeg"/>
       }
 
-      <meta property="og:image:width" content= "480" />
-      <meta property="og:image:height" content= "480" />
+      {/*<meta property="og:image:width" content= "480" />*/}
+      {/*<meta property="og:image:height" content= "480" />*/}
 
       <meta property="twitter:title" content={title}/>
       <meta property="twitter:site_name" content="pixl.page"/>
