@@ -65,6 +65,7 @@
   --c-blue-1: blue;
   --border-width: 1px;
   --border-padding: 4px;
+  --card-selected: #{$jet-black};
 
   .white-content {
     --border-width: 0;
@@ -78,6 +79,7 @@
     --btn-color: #{$c-white-1};
     --btn-text-color: #{$smoke-black};
     --item-selected: #{$ice-black};
+    --card-selected: #{$white};
     --accordion-heading-color: #{$ice-black};
     --c-blue-1: cyan;
   }
@@ -442,6 +444,12 @@ input[type="email"] {
     }
   }
 
+  &.p-tooltip-bottom {
+    .p-tooltip-arrow {
+      border-bottom-color: var(--item-selected);
+    }
+  }
+
   @include media-breakpoint-up(md) {
     display: block !important;
   }
@@ -615,10 +623,10 @@ input[type="email"] {
 
 .el-card-item {
   &.selected {
-    background-color: var(--item-selected);
+    background-color: var(--card-selected);
 
     h6 {
-      color: $c-white-1;
+      color: var(--btn-text-color);
     }
 
     .collector-mode__only {
@@ -635,7 +643,7 @@ input[type="email"] {
 
     .assets__count {
       span {
-        color: #fff;
+        color: var(--btn-text-color);
       }
     }
   }
@@ -646,10 +654,10 @@ input[type="email"] {
 
 .selected {
   .el-asset-item {
-    background-color: var(--item-selected);
+    background-color: var(--card-selected);
 
     h6 {
-      color: $c-white-1;
+      color: var(--btn-text-color);
     }
 
     .collector-mode__only {

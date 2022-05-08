@@ -4,6 +4,7 @@ import onSubString from '../../utils/onSubString';
 import onCheckBase64 from '../../utils/onCheckBase64';
 import {Sidebar} from 'primereact/sidebar';
 import {Image} from 'primereact/image';
+import {Tooltip} from 'primereact/tooltip';
 import Buttons from '../Buttons/Buttons';
 import ContentMetaData from '../ContentMetaData/ContentMetaData';
 import ContentAdditionalInfo from '../ContentAdditionalInfo/ContentAdditionalInfo';
@@ -188,7 +189,11 @@ function ContentAssetItem(props) {
 
         <div className="el-asset-item__data position-relative">
           <div onClick={navigateAssetHandle} style={{margin: '0 auto'}}>
-            <h6>{props.assets.displayName ? onSubString(props.assets.displayName) : onSubString(props.assets.name)}</h6>
+            <Tooltip mouseTrackTop={20} position="bottom" target=".title"/>
+
+            <h6 data-pr-tooltip={props.assets.displayName} className="title">
+              {props.assets.displayName ? onSubString(props.assets.displayName) : onSubString(props.assets.name)}
+            </h6>
           </div>
           {
             imagesLoaded && <Buttons className="collector-mode__only metadata" tooltip="Metadata" type="Metadata" onClick={showMetaHandle}/>

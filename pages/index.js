@@ -5,7 +5,7 @@ Homepage
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import pixlThumbnail from '../assets/images/pixl.page_Icon.png';
+import pixlThumbnail from '../assets/images/icon_wbg.png';
 import ContentAddressInput from '../components/ContentAddressInput/ContentAddressInput';
 import ContentPDF from '../components/ContentPDF/ContentPDF';
 import {resetState} from '../store/manager';
@@ -23,7 +23,7 @@ function Home() {
         title="pixl.page - Your NFT profile page"
         description="Create personal pages with your NFTs"
         image={pixlThumbnail}/>
-      <div className="homepage">
+      <div className="homepage homepage-content">
         <ContentAddressInput/>
         <ContentPDF/>
       </div>

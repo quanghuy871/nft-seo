@@ -53,7 +53,7 @@ function GenerateLink() {
   return (
     <Fragment>
       <Button tooltipOptions={{position: 'top'}}
-              tooltip={collectionsState.length > 0 ? 'Create Page base on your selection' : 'Please select NFTs or collections to be added to your page'}
+              tooltip={collectionsState.length > 0 ? 'Create Page based on your selection' : 'Please select NFTs or collections to be added to your page'}
               label={`${loading ? 'CREATING...' : 'CREATE PAGE'}`}
               className={`btn btn-border-black btn--create ${collectionsState.length > 0 ? '' : 'btn-disabled'}`}
               onClick={handleClick}/>

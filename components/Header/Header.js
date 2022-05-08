@@ -36,6 +36,26 @@ function Header(props) {
       document.querySelector('.dark').classList.remove('disabled');
       setValue(false);
     }
+
+    if (router.pathname !== '/') {
+      if (localStorage.getItem('view') === 'collector') {
+        dispatch(changeView('collector'));
+
+        document.body.classList.remove('gallery-mode');
+        document.querySelector('.viewmode').querySelector('.p-inputswitch').classList.remove('p-inputswitch-checked');
+        document.querySelector('.gallery').classList.remove('disabled');
+        document.querySelector('.collector').classList.add('disabled');
+        setMode(false);
+      } else {
+        dispatch(changeView('gallery'));
+
+        document.body.classList.add('gallery-mode');
+        document.querySelector('.viewmode').querySelector('.p-inputswitch').classList.add('p-inputswitch-checked');
+        document.querySelector('.gallery').classList.add('disabled');
+        document.querySelector('.collector').classList.remove('disabled');
+        setMode(true);
+      }
+    }
   }, [router]);
 
   // Change theme color mode handle
