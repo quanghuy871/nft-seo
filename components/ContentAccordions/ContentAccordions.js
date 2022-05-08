@@ -35,10 +35,6 @@ function ContentAccordions() {
           </p>
         </AccordionTab>
 
-        <AccordionTab header="Why do I need to connect my wallet?">
-          <p>Yes, just connect your wallet and you can edit the pages you created!</p>
-        </AccordionTab>
-
         <AccordionTab header="Can I edit my page once I created it?">
           <p>Soon!</p>
         </AccordionTab>
