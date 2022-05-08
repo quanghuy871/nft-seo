@@ -58,6 +58,7 @@
   --card-bg-color: #{$c-white-1};
   --body-grid-color: #{$gray};
   --bg-color: transparent;
+  --bg-color-2: #{$c-white-1};
   --btn-color: #{$black};
   --btn-text-color: #{$c-white-1};
   --item-selected: #{$jet-black};
@@ -76,6 +77,7 @@
     --card-bg-color: #{$smoke-black};
     --body-grid-color: #1c1c1c;
     --bg-color: #111111;
+    --bg-color-2: #111111;
     --btn-color: #{$c-white-1};
     --btn-text-color: #{$smoke-black};
     --item-selected: #{$ice-black};
@@ -646,6 +648,21 @@ input[type="email"] {
         color: var(--btn-text-color);
       }
     }
+
+    .controls__btn {
+      &.arrow__btn {
+        background-color: var(--bg-color-2);
+        border: none;
+      }
+
+      &.showmeta__btn {
+        background-color: var(--bg-color-2);
+      }
+
+      img {
+        filter: var(--filter-img);
+      }
+    }
   }
 }
 
@@ -668,18 +685,33 @@ input[type="email"] {
     }
 
     .el-asset-item__img {
-      background-color: var(--item-selected);
+      background-color: var(--card-selected);
     }
 
     .el-asset-item__img-meta {
       span {
-        color: $c-white-1;
+        color: var(--btn-text-color);
+      }
+    }
+
+    .controls__btn {
+      &.arrow__btn {
+        background-color: var(--bg-color-2);
+        border: none;
+      }
+
+      &.showmeta__btn {
+        background-color: var(--bg-color-2);
+      }
+
+      img {
+        filter: var(--filter-img);
       }
     }
   }
 
   .el-asset-item__img-meta::-webkit-scrollbar-thumb {
-    background: #fff;
+    background: var(--card-bg-color);
   }
 }
 

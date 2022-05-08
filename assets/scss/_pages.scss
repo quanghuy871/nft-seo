@@ -281,6 +281,10 @@
 //////////////////////////
 // Styles for gallery mode
 
+.gallery-mode__only {
+  bottom: 7px;
+}
+
 .gallery-mode {
   .grid__fit-squared, .grid__fit-rectangle {
     grid-gap: 0;
