@@ -122,7 +122,9 @@ function Header(props) {
 
           <div className="header__wrapper-logo text-center">
             <Link href="/">
-              <a className="main__logo"><Image className="img-fluid logo" src={Logo} alt="pixl.page"/></a>
+              <a className="main__logo"><Image className="img-fluid logo" src={Logo} alt="pixl.page"/>
+                <span className='beta'>BETA</span>
+              </a>
             </Link>
 
             {

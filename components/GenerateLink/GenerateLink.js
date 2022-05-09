@@ -27,7 +27,7 @@ function GenerateLink() {
     }
     setLoading(true);
 
-    axios.post(`https://api.nano-frames.com/pixl-page-service/pages`, JSON.stringify(body), {
+    axios.post(`${process.env.NEXT_PUBLIC_API}/pixl-page-service/pages`, JSON.stringify(body), {
       headers: {
         'Content-Type': 'application/json',
       },

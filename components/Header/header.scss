@@ -161,4 +161,21 @@
       }
     }
   }
+
+  .main__logo {
+    position: relative;
+
+    .beta {
+      font-weight: 100;
+      font-size: 15px;
+      position: absolute;
+      right: -15px;
+      bottom: -8px;
+
+      @include media-breakpoint-up(xxl) {
+        right: -10px;
+        bottom: 0;
+      }
+    }
+  }
 }
