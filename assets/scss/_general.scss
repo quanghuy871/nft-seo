@@ -773,3 +773,11 @@ input[type="email"] {
 .el-asset-item__img-meta::-webkit-scrollbar-thumb:active {
   background: rgba(0, 0, 0, .9);
 }
+
+.white-content {
+  .beta {
+    &:hover {
+      color: $c-white-1;
+    }
+  }
+}
