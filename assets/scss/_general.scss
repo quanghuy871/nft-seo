@@ -775,6 +775,14 @@ input[type="email"] {
 }
 
 .white-content {
+  .main__logo {
+    &:hover {
+      .beta {
+        color: $c-white-1;
+      }
+    }
+  }
+
   .beta {
     &:hover {
       color: $c-white-1;
