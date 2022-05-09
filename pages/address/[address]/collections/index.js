@@ -11,6 +11,7 @@ import {useSelector} from 'react-redux';
 import {InputText} from 'primereact/inputtext';
 import InfiniteScroll from 'react-infinite-scroller';
 import {useRouter} from 'next/router';
+import onCount from '../../../../utils/onCount';
 
 function Collections(props) {
   const [collections, setCollections] = useState([]);
@@ -27,12 +28,14 @@ function Collections(props) {
 
   const fetchNFTs = useCallback(async (page = 0) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/asset-service/wallets/${router.query.address}/collections?page=${page}&pageSize=50`, {
+      const response = await fetch(`https://api.nano-frames.com/asset-service/wallets/${router.query.address}/collections?page=${page}&pageSize=50`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
       });
+
+      const resCount = await onCount(router.query.address, 'collection');
 
       if (!response.ok) {
         throw new Error('Failed to fetch');
@@ -41,7 +44,7 @@ function Collections(props) {
       const data = await response.json();
 
       if (data && data.items && data.items.length > 0) {
-        setTotalCount(data.totalCount);
+        setTotalCount(resCount.count);
         setSyncStatus(false);
 
         if (page === 0) {

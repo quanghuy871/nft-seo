@@ -7,7 +7,7 @@ async function onFetchAssets(address, collectionId, dispatch) {
   const page = 0;
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API}/asset-service/wallets/${address}/collections/${collectionId}/assets?page=${page}&pageSize=1000`, {
+    const response = await fetch(`https://api.nano-frames.com/asset-service/wallets/${address}/collections/${collectionId}/assets?page=${page}&pageSize=1000`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

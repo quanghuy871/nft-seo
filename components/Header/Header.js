@@ -38,15 +38,7 @@ function Header(props) {
     }
 
     if (router.pathname !== '/') {
-      if (localStorage.getItem('view') === 'collector') {
-        dispatch(changeView('collector'));
-
-        document.body.classList.remove('gallery-mode');
-        document.querySelector('.viewmode').querySelector('.p-inputswitch').classList.remove('p-inputswitch-checked');
-        document.querySelector('.gallery').classList.remove('disabled');
-        document.querySelector('.collector').classList.add('disabled');
-        setMode(false);
-      } else {
+      if (localStorage.getItem('view') === 'gallery') {
         dispatch(changeView('gallery'));
 
         document.body.classList.add('gallery-mode');
@@ -54,6 +46,15 @@ function Header(props) {
         document.querySelector('.gallery').classList.add('disabled');
         document.querySelector('.collector').classList.remove('disabled');
         setMode(true);
+      } else {
+        dispatch(changeView('collector'));
+
+        document.body.classList.remove('gallery-mode');
+        document.querySelector('.viewmode').querySelector('.p-inputswitch').classList.remove('p-inputswitch-checked');
+        document.querySelector('.gallery').classList.remove('disabled');
+        document.querySelector('.collector').classList.add('disabled');
+        setMode(false);
+
       }
     }
   }, [router]);
@@ -123,7 +124,7 @@ function Header(props) {
           <div className="header__wrapper-logo text-center">
             <Link href="/">
               <a className="main__logo"><Image className="img-fluid logo" src={Logo} alt="pixl.page"/>
-                <span className='beta'>BETA</span>
+                <span className="beta">BETA</span>
               </a>
             </Link>
 

@@ -12,6 +12,7 @@ import {setCurrentCollectionAssets} from '../../../../../../store/currentCollect
 import {addAsset, countAsset, removeAsset, updateCollectionState} from '../../../../../../store/manager';
 import {getCollectionState} from '../../../../../../store/selector';
 import InfiniteScroll from 'react-infinite-scroller';
+import onCount from '../../../../../../utils/onCount';
 
 function Assets() {
   const [assets, setAssets] = useState([]);
@@ -52,17 +53,19 @@ function Assets() {
 
   const fetchAssets = useCallback(async (page = 0) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/asset-service/wallets/${router.query.address}/collections/${router.query.collectionId}/assets?page=${page}&pageSize=500`, {
+      const response = await fetch(`https://api.nano-frames.com/asset-service/wallets/${router.query.address}/collections/${router.query.collectionId}/assets?page=${page}&pageSize=50`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
       });
 
+      const resCount = await onCount(router.query.address, 'assets', router.query.collectionId);
+
       const data = await response.json();
 
       if (data && data.items && data.items.length > 0) {
-        setTotalCount(data.totalCount);
+        setTotalCount(resCount.count);
         setSyncStatus(false);
         setCollectionName(data.items[0].collectionName);
 
@@ -102,6 +105,8 @@ function Assets() {
     removeAssets(assets);
     setSelectAll(false);
   };
+
+  onCount(router.query.address);
 
   return (
     <div className="content-page assets">
