@@ -6,7 +6,7 @@ function PageCounter() {
   // Get page counter
   const handleRequest = async () => {
     try {
-      const response = await fetch(`https://api.nano-frames.com/pixl-page-service/pages/count`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/pixl-page-service/pages/count`, {
         method: 'GET',
       });
 

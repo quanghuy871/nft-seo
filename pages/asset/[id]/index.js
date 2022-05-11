@@ -116,7 +116,11 @@ function AssetId({data}) {
 }
 
 export async function getServerSideProps(context) {
-  const res = await fetch(`https://api.nano-frames.com/asset-service/assets/${context.params.id}`);
+  const res = await fetch(`https://api.nano-frames.com/asset-service/assets/${context.params.id}`, {
+    headers: {
+      'Content-Type' : 'application/json'
+    }
+  });
   const data = await res.json();
 
   if (!data) {

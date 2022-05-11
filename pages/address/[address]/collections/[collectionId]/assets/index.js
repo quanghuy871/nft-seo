@@ -53,7 +53,7 @@ function Assets() {
 
   const fetchAssets = useCallback(async (page = 0) => {
     try {
-      const response = await fetch(`https://api.nano-frames.com/asset-service/wallets/${router.query.address}/collections/${router.query.collectionId}/assets?page=${page}&pageSize=50`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/asset-service/wallets/${router.query.address}/collections/${router.query.collectionId}/assets?page=${page}&pageSize=50`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

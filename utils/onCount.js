@@ -5,7 +5,7 @@ import React from 'react';
 async function onCount(address, type, collectionId) {
   if (type === 'collection') {
     try {
-      const response = await fetch(`https://api.nano-frames.com/asset-service/wallets/${address}/collections/count`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/asset-service/wallets/${address}/collections/count`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ async function onCount(address, type, collectionId) {
     }
   } else {
     try {
-      const response = await fetch(`https://api.nano-frames.com/asset-service/wallets/${address}/collections/${collectionId}/assets/count`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/asset-service/wallets/${address}/collections/${collectionId}/assets/count`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

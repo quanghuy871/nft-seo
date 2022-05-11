@@ -27,7 +27,7 @@ function PixlPage({data}) {
 
   const fetchAssets = useCallback(async (page = 0) => {
     try {
-      const response = await fetch(`https://api.nano-frames.com/pixl-page-service/pages/${router.query.pixl}/assets?page=${page}&pageSize=50`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/pixl-page-service/pages/${router.query.pixl}/assets?page=${page}&pageSize=50`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
