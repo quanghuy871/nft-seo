@@ -2,7 +2,7 @@
 Created page
 */
 
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useCallback, createRef, useEffect, useRef, useState} from 'react';
 import ContentLoading from '../../components/ContentLoading/ContentLoading';
 import ContentCardList from '../../components/ContentCardList/ContentCardList';
 import {useDispatch, useSelector} from 'react-redux';
@@ -12,8 +12,12 @@ import {setAllAssets} from '../../store/pixlManager';
 import InfiniteScroll from 'react-infinite-scroller';
 import {getCollectionState} from '../../store/selector';
 import {useRouter} from 'next/router';
+import {useScreenshot} from 'use-react-screenshot';
+import html2canvas from 'html2canvas';
+import {decode as base64_decode, encode as base64_encode} from 'base-64';
 
 function PixlPage({data}) {
+  const [canvas, setCanvas] = useState(null);
   const [value, setValue] = useState('');
   const [loading, setLoading] = useState(true);
   const [syncStatus, setSyncStatus] = useState(true);
@@ -24,6 +28,25 @@ function PixlPage({data}) {
   const dispatch = useDispatch();
   const currentCollection = useSelector(state => state.currentCollection.currentCollection.name);
   const firstRender = useRef(true);
+  //
+  // const ref = createRef(null);
+  // const [image, takeScreenshot] = useScreenshot();
+  // const getImage = () => {
+  //   console.log('WORK');
+  //   html2canvas(document.querySelector('.main-content'), {
+  //     // allowTaint: true,
+  //     onrendered: function(canvas) {
+  //       document.body.appendChild(canvas);
+  //       return Canvas2Image.saveAsPNG(canvas);
+  //     },
+  //   }).then(canvas => {
+  //     document.body.appendChild(canvas);
+  //     const newCanvas = canvas.toDataURL('image/png', 1.0);
+  //     const decode = base64_encode(newCanvas);
+  //     console.log(decode);
+  //     setCanvas(newCanvas);
+  //   });
+  // };
 
   const fetchAssets = useCallback(async (page = 0) => {
     try {

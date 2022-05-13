@@ -1,10 +1,11 @@
 import {Html, Head, Main, NextScript} from 'next/document';
+import {resetServerContext} from 'react-beautiful-dnd';
 
 function Document() {
   return (
     <Html>
       <Head>
-       {/*Global site tag (gtag.js) - Google Analytics*/}
+        {/*Global site tag (gtag.js) - Google Analytics*/}
         <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_TRACKING_ID}`}></script>
 
         <script
@@ -26,5 +27,13 @@ function Document() {
     </Html>
   );
 }
+
+// export async function getStaticProps(context) {
+//   resetServerContext();
+//
+//   return {
+//     props: {}, // will be passed to the page component as props
+//   };
+// }
 
 export default Document;

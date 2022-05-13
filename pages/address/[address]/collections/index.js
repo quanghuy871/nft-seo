@@ -121,7 +121,10 @@ function Collections(props) {
             hasMore={!syncStatus && collections.length < totalCount}
             className="collections-grid__wrapper"
           >
-            <ContentCardList selectAll={props.selectAll} input={value} collections={collections} type="collections"/>
+            {
+              collections.length !== 0 &&
+              <ContentCardList selectAll={props.selectAll} input={value} collections={collections} type="collections"/>
+            }
           </InfiniteScroll>
         </div>
       </div>

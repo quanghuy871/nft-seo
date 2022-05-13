@@ -19,3 +19,13 @@
 @import "../../components/ContentPDF/content-pdf";
 @import "../../components/Preview/preview";
 @import "pages";
+
+
+.test {
+  display: flex;
+  flex-wrap: wrap;
+
+  &-child {
+    flex: 1 0 15%; /* explanation below */
+  }
+}
