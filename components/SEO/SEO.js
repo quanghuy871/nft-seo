@@ -27,7 +27,7 @@ const SEO = (props) => {
       <meta property="twitter:name" content={title}/>
       <meta property="twitter:description" content={description}/>
       <meta property="twitter:card" content="summary_large_image"/>
-      <meta property="twitter:image" content={image.src ? image.src : image}/>
+      <meta name="twitter:image" content={image.src ? image.src : image}/>
       <meta property="twitter:image:alt" content="pixl.page"/>
       <meta property="twitter:site" content="@pixlpage" />
     </Head>
