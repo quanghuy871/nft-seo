@@ -42,7 +42,7 @@ function ContentCardItem(props) {
   };
 
   return (
-    <div {...props} className={`el-card-item ${checked ? 'selected' : ''}`}>
+    <div className={`el-card-item ${checked ? 'selected' : ''}`}>
       <div className="el-card-item__img">
         {
           imagesLoaded &&

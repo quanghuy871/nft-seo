@@ -80,7 +80,7 @@
 
   &-grid {
     &__wrapper {
-      display: grid;
+      //display: grid;
       grid-gap: 10px;
       grid-template-columns: repeat(2, minmax(150px, 1fr));
 
@@ -269,6 +269,7 @@
 
   iframe {
     min-height: 300px;
+    display: block;
   }
 }
 
