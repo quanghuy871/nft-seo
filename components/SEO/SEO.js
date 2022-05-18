@@ -13,6 +13,7 @@ const SEO = (props) => {
       <meta property="og:name" content={title}/>
       <meta property="og:description" content={description}/>
       <meta property="og:image" content={image.src ? image.src : image}/>
+      <meta property="og:type" content="website" />
 
       {
         props.type && <meta property="og:image:type" content="image/jpeg"/>
@@ -25,9 +26,10 @@ const SEO = (props) => {
       <meta property="twitter:site_name" content="pixl.page"/>
       <meta property="twitter:name" content={title}/>
       <meta property="twitter:description" content={description}/>
-      <meta name="twitter:card" content="summary_large_image"/>
+      <meta property="twitter:card" content="summary_large_image"/>
       <meta property="twitter:image" content={image.src ? image.src : image}/>
       <meta property="twitter:image:alt" content="pixl.page"/>
+      <meta property="twitter:site" content="@pixlpage" />
     </Head>
   );
 };
