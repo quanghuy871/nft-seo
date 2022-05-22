@@ -46,6 +46,7 @@ function ContentCardList(props) {
     <div className="test-child">
       <ContentCardItem collection={value} key={value.id} index={index}/>
     </div>
+
   ));
 
   const SortableList = SortableContainer(({items}) => {
