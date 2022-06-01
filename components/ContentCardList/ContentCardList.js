@@ -16,7 +16,6 @@ function ContentCardList(props) {
     collections = props.collections.filter(el => {
       if (props.input === '') {
         return el;
-
       } else {
         return el.name.toLowerCase().includes(props.input);
       }
