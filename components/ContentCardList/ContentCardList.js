@@ -12,6 +12,7 @@ function ContentCardList(props) {
   let collections, assets;
 
 
+
   if (props.type === 'collections') {
     collections = props.collections.filter(el => {
       if (props.input === '') {
