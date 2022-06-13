@@ -11,8 +11,6 @@ function ContentCardList(props) {
   const [characters, updateCharacters] = useState(props.collections);
   let collections, assets;
 
-
-
   if (props.type === 'collections') {
     collections = props.collections.filter(el => {
       if (props.input === '') {
