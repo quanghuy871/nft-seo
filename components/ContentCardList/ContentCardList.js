@@ -17,6 +17,7 @@ function ContentCardList(props) {
 
         return el;
 
+
       } else {
         return el.name.toLowerCase().includes(props.input);
       }
