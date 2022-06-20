@@ -27,7 +27,6 @@ function Home() {
         <ContentAddressInput/>
         <ContentPDF/>
       </div>
-
     </>
   );
 }
