@@ -19,6 +19,7 @@ function Home() {
 
   return (
 
+
     <>
       <SEO
         title="pixl.page - Your NFT profile page"
