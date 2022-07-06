@@ -13,6 +13,7 @@ import {useDispatch} from 'react-redux';
 import SEO from '../components/SEO/SEO';
 import {useRouter} from 'next/router';
 
+
 function Home() {
   const dispatch = useDispatch();
   dispatch(resetState());
