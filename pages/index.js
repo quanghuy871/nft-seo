@@ -31,5 +31,104 @@ function Home() {
   );
 }
 
+{/*<div className="badges">*/}
+{/*  <h4>Badges</h4>*/}
+
+{/*  <div className="badges-wrapper">*/}
+{/*    <div className="badges-wrapper__item">*/}
+{/*      <div className="img--wrapper badge--radius">*/}
+{/*        <img className="img-fluid" src={Sample.src} alt=""/>*/}
+{/*      </div>*/}
+{/*      <p>pixl.page</p>*/}
+{/*    </div>*/}
+
+{/*    <div className="badges-wrapper__item">*/}
+{/*      <div className="img--wrapper badge--radius">*/}
+{/*        <img className="img-fluid" src={Sample.src} alt=""/>*/}
+{/*      </div>*/}
+{/*      <p>pixl.page</p>*/}
+{/*    </div>*/}
+
+{/*    <div className="badges-wrapper__item">*/}
+{/*      <div className="img--wrapper badge--radius">*/}
+{/*        <img className="img-fluid" src={Sample.src} alt=""/>*/}
+{/*      </div>*/}
+{/*      <p>pixl.page</p>*/}
+{/*    </div>*/}
+
+{/*    <div className="badges-wrapper__item">*/}
+{/*      <div className="img--wrapper badge--radius">*/}
+{/*        <img className="img-fluid" src={Sample.src} alt=""/>*/}
+{/*      </div>*/}
+{/*      <p>pixl.page</p>*/}
+{/*    </div>*/}
+
+{/*    <div className="badges-wrapper__item">*/}
+{/*      <div className="img--wrapper badge--radius">*/}
+{/*        <img className="img-fluid" src={Sample.src} alt=""/>*/}
+{/*      </div>*/}
+{/*      <p>pixl.page</p>*/}
+{/*    </div>*/}
+{/*  </div>*/}
+
+{/*  <div className="navigate--arrow">*/}
+{/*    <a href="#" onClick={openYourBadgeHandle}>*/}
+{/*      <img className="img-fluid" src={Arrow.src} alt="Arrow"/>*/}
+{/*    </a>*/}
+{/*  </div>*/}
+{/*</div>*/}
+
+{/*<div className="stats">*/}
+{/*  <h4>Stats</h4>*/}
+
+{/*  <div className="badges-wrapper">*/}
+{/*    <div className="badges-wrapper__item">*/}
+{/*      <div className="img--wrapper badge--radius">*/}
+{/*        <img className="img-fluid" src={Sample.src} alt=""/>*/}
+{/*      </div>*/}
+{/*      <p>pixl.page</p>*/}
+{/*    </div>*/}
+
+{/*    <div className="badges-wrapper__item">*/}
+{/*      <div className="img--wrapper badge--radius">*/}
+{/*        <img className="img-fluid" src={Sample.src} alt=""/>*/}
+{/*      </div>*/}
+{/*      <p>pixl.page</p>*/}
+{/*    </div>*/}
+
+{/*    <div className="badges-wrapper__item">*/}
+{/*      <div className="img--wrapper badge--radius">*/}
+{/*        <img className="img-fluid" src={Sample.src} alt=""/>*/}
+{/*      </div>*/}
+{/*      <p>pixl.page</p>*/}
+{/*    </div>*/}
+
+{/*    <div className="badges-wrapper__item">*/}
+{/*      <div className="img--wrapper badge--radius">*/}
+{/*        <img className="img-fluid" src={Sample.src} alt=""/>*/}
+{/*      </div>*/}
+{/*      <p>pixl.page</p>*/}
+{/*    </div>*/}
+
+{/*    <div className="badges-wrapper__item">*/}
+{/*      <div className="img--wrapper badge--radius">*/}
+{/*        <img className="img-fluid" src={Sample.src} alt=""/>*/}
+{/*      </div>*/}
+{/*      <p>pixl.page</p>*/}
+{/*    </div>*/}
+{/*  </div>*/}
+
+{/*  <div className="navigate--arrow">*/}
+{/*    <a href="#">*/}
+{/*      <img className="img-fluid" src={Arrow.src} alt="Arrow"/>*/}
+{/*    </a>*/}
+{/*  </div>*/}
+{/*</div>*/}
+
+
+{/*<Sidebar visible={yourBadge} position="right" onHide={() => setYourBadge(false)}>*/}
+{/*  <ContentYourBadge/>*/}
+{/*</Sidebar>*/}
+
 
 export default Home;
