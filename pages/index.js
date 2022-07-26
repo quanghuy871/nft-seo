@@ -42,6 +42,7 @@ function Home() {
 {/*      <p>pixl.page</p>*/}
 {/*    </div>*/}
 
+
 {/*    <div className="badges-wrapper__item">*/}
 {/*      <div className="img--wrapper badge--radius">*/}
 {/*        <img className="img-fluid" src={Sample.src} alt=""/>*/}
