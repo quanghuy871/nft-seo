@@ -32,6 +32,7 @@ function Home() {
 }
 
 
+
 {/*<div className="badges">*/}
 {/*  <h4>Badges</h4>*/}
 
